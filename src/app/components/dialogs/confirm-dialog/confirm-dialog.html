@@ -1,0 +1,15 @@
+<div class="dialog-header">
+  <h2 mat-dialog-title>{{ data.title || 'אישור פעולה' }}</h2>
+</div>
+<mat-dialog-content>
+  <p class="confirm-text">{{ data.message }}</p>
+  <div class="warning-box" *ngIf="data.isDestructive">
+    <mat-icon>warning</mat-icon> פעולה זו לא ניתנת לביטול
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end" style="padding: 20px;">
+  <button mat-button [mat-dialog-close]="false">ביטול</button>
+  <button mat-flat-button color="warn" [mat-dialog-close]="true">
+    {{ data.confirmText || 'כן, בצע' }}
+  </button>
+</mat-dialog-actions>

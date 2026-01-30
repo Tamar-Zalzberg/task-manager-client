@@ -1,0 +1,81 @@
+<div class="tasks-container">
+
+  <div class="header-row">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+    <h1>משימות הפרויקט</h1>
+  </div>
+
+  <div class="quick-add-task">
+    <mat-icon style="color: #7b68ee;">check_circle_outline</mat-icon>
+    <form [formGroup]="taskForm" (ngSubmit)="createTask()" style="flex: 1; display: flex;">
+      <input formControlName="title" placeholder="+ הוסף משימה חדשה...">
+    </form>
+    <button mat-button color="primary" (click)="createTask()" [disabled]="taskForm.invalid">שמור</button>
+  </div>
+
+  <div class="task-list-wrapper" *ngIf="tasks.length > 0">
+    
+    <div *ngFor="let task of tasks" class="task-row" [class.completed]="task.status === 'completed'">
+      
+      <div class="task-main-info">
+        <mat-checkbox color="primary" 
+                      [checked]="task.status === 'completed'" 
+                      (change)="toggleTaskStatus(task)"
+                      class="custom-checkbox">
+        </mat-checkbox>
+        
+        <div class="task-text">
+<span class="task-name">{{ task.title | shorten:20 }}</span>          
+          <span class="task-desc" *ngIf="task.description" [matTooltip]="task.description">
+            {{ task.description | shorten:30 }}
+          </span>
+
+        </div>
+      </div>
+
+      <div class="task-actions">
+        <button mat-icon-button class="comment-btn" (click)="toggleComments(task)" 
+                [color]="task.comments.length > 0 ? 'primary' : ''">
+          <mat-icon>chat_bubble_outline</mat-icon>
+          <span class="badge" *ngIf="task.comments.length > 0">{{ task.comments.length }}</span>
+        </button>
+
+        <button mat-icon-button color="warn" class="delete-btn" (click)="deleteTask(task)">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </div>
+
+      <div class="task-comments-panel" *ngIf="task.showComments">
+        <div class="comments-scroll">
+          <div *ngFor="let comment of task.comments" class="comment-bubble">
+            <div class="comment-avatar">{{ (comment.user?.username || comment.author_name || 'U').charAt(0) }}</div>
+            <div class="comment-content">
+              <strong>{{ comment.user?.username || comment.author_name || 'חבר צוות' }}</strong>
+              
+              <p>{{ comment.body || comment.content || comment.text }}</p>
+              
+            </div>
+          </div>
+          <p *ngIf="task.comments.length === 0" style="color: #ccc; text-align: center; margin: 10px;">אין תגובות עדיין.</p>
+        </div>
+
+        <div class="comment-input-area">
+          <input [(ngModel)]="task.newCommentText" [ngModelOptions]="{standalone: true}" 
+                 (keyup.enter)="addComment(task)" placeholder="כתוב תגובה...">
+          <button mat-icon-button color="primary" (click)="addComment(task)">
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="tasks.length === 0" class="empty-state">
+    <mat-icon>assignment_turned_in</mat-icon>
+    <p>הכל נקי! אין משימות פתוחות.</p>
+  </div>
+
+</div>

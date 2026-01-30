@@ -1,0 +1,105 @@
+.projects-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  direction: rtl;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+h1 { font-size: 28px; font-weight: 700; color: #292d34; margin: 0; }
+.subtitle { color: #7f7f7f; margin-top: 5px; }
+
+.header-actions { display: flex; gap: 10px; }
+
+/* שורת יצירה */
+.create-bar {
+  background: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  margin-bottom: 40px;
+  border: 1px solid #eaebef;
+}
+
+.create-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 10px;
+}
+
+/* גריד פרויקטים */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #eaebef;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  border-color: #7b68ee;
+}
+
+.card-left-border {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #7b68ee;
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.card-icon {
+  background: #f0f7ff;
+  color: #7b68ee;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-text h3 { margin: 0; font-size: 16px; font-weight: 600; }
+.card-text p { margin: 5px 0 0; font-size: 12px; color: #888; }
+
+.card-actions {
+  border-top: 1px solid #f5f5f5;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: flex-end;
+  background: #fafafa;
+}
+
+.empty-state { text-align: center; color: #bbb; margin-top: 50px; }
+.empty-state mat-icon { font-size: 60px; width: 60px; height: 60px; opacity: 0.5; }

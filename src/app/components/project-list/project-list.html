@@ -1,0 +1,59 @@
+<div class="projects-container">
+  
+  <div class="header-row">
+    <div>
+      <h1 *ngIf="teamDetails">{{ teamDetails.name }}</h1> <p class="subtitle">ניהול פרויקטים ומשימות</p>
+    </div>
+    
+    <div class="header-actions">
+      <button mat-stroked-button (click)="goBack()">
+        <mat-icon>arrow_forward</mat-icon> חזרה לצוותים
+      </button>
+      
+      <button mat-flat-button color="accent" (click)="manageTeamMembers()" style="background: #e0e7ff; color: #4338ca;">
+        <mat-icon>group_add</mat-icon> ניהול חברים
+      </button>
+    </div>
+  </div>
+
+  <div class="create-bar">
+    <mat-icon style="color: #7b68ee;">add_box</mat-icon>
+    <input [(ngModel)]="newProjectName" placeholder="שם הפרויקט החדש..." (keyup.enter)="createProject()">
+    <button mat-flat-button color="primary" (click)="createProject()" [disabled]="!newProjectName">
+      צור פרויקט
+    </button>
+  </div>
+
+  <div class="projects-grid" *ngIf="projects.length > 0">
+    
+    <div *ngFor="let proj of projects" class="project-card" (click)="openProject(proj._id || proj.id)">
+      <div class="card-left-border"></div>
+      
+      <div class="card-content">
+        <div class="card-icon">
+          <mat-icon>folder</mat-icon>
+        </div>
+        <div class="card-text">
+          <h3>{{ proj.name }}</h3>
+          <p>לחץ לצפייה במשימות</p>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button mat-icon-button (click)="$event.stopPropagation(); editProject(proj)" matTooltip="ערוך שם">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="$event.stopPropagation(); deleteProject(proj)" matTooltip="מחק">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="projects.length === 0" class="empty-state">
+    <mat-icon>folder_open</mat-icon>
+    <p>אין פרויקטים בצוות זה עדיין.</p>
+  </div>
+
+</div>

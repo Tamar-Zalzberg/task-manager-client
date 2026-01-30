@@ -1,0 +1,50 @@
+<div class="teams-container">
+  
+  <h1>הצוותים שלי</h1>
+  <p class="subtitle">נהל את מרחבי העבודה והפרויקטים שלך במקום אחד</p>
+
+  <div class="create-team-bar">
+    <mat-icon style="color: #ccc;">add_circle_outline</mat-icon>
+    <form [formGroup]="teamForm" (ngSubmit)="createTeam()" style="flex: 1; display: flex; align-items: center;">
+      <input formControlName="name" placeholder="שם הצוות החדש שלך...">
+      <button mat-flat-button color="primary" class="create-btn" [disabled]="teamForm.invalid">
+        צור צוות
+      </button>
+    </form>
+  </div>
+
+  <div class="teams-grid">
+    <div *ngFor="let team of teams" class="team-card" (click)="router.navigate(['/teams', team.id || team._id, 'projects'])">
+      
+      <div class="card-color-strip"></div>
+      
+      <div class="card-content">
+        <div class="card-header">
+          <h3 class="team-title">{{ team.name }}</h3>
+          <span class="members-count">{{ team.members_count || 0 }} חברים</span>
+        </div>
+        <p class="description">מרחב עבודה לניהול משימות ופרויקטים.</p>
+      </div>
+
+      <div class="card-actions">
+        <button mat-button class="action-btn add-member-btn" 
+                (click)="$event.stopPropagation(); openMembersDialog($event, team.id || team._id, team.name)">
+          <mat-icon style="font-size: 18px; width: 18px; height: 18px; margin-left: 5px;">person_add</mat-icon>
+          הוסף חבר
+        </button>
+
+        <button mat-icon-button class="action-btn delete-btn" 
+                (click)="$event.stopPropagation(); deleteTeam($event, team.id || team._id)" matTooltip="מחק צוות">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </div>
+    
+    </div>
+  </div>
+
+  <div *ngIf="teams.length === 0" style="text-align: center; color: #ccc; margin-top: 50px;">
+    <mat-icon style="font-size: 60px; height: 60px; width: 60px;">layers_clear</mat-icon>
+    <p>אין לך צוותים עדיין. זה הזמן ליצור אחד!</p>
+  </div>
+
+</div>

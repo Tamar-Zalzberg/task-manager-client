@@ -1,0 +1,10 @@
+.dialog-container { text-align: center; padding: 10px; font-family: 'Segoe UI', sans-serif; }
+.icon-circle {
+  width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 15px;
+  display: flex; align-items: center; justify-content: center; color: white;
+}
+.success { background-color: #7b68ee; box-shadow: 0 4px 10px rgba(123, 104, 238, 0.3); }
+.error { background-color: #f55; box-shadow: 0 4px 10px rgba(255, 85, 85, 0.3); }
+h2 { margin-bottom: 5px; color: #292d34; font-weight: 700; }
+p { color: #7f7f7f; font-size: 15px; margin-bottom: 20px; }
+button { min-width: 100px; border-radius: 8px !important; }
