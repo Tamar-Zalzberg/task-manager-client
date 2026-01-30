@@ -194,7 +194,6 @@ import { TeamsService } from '../services/teams.service';
   `]
 })
 export class TeamMembersDialogComponent implements OnInit {
-  // ... הלוגיקה נשארת אותו דבר ...
   members: any[] = [];
   allUsers: any[] = [];
   teamName: string = '';
@@ -220,7 +219,6 @@ export class TeamMembersDialogComponent implements OnInit {
     this.loadAllUsers();
   }
 
-  // צבע אקראי לפי שם המשתמש
   getColorForUser(name: string): string {
     const colors = ['#FF5722', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#4CAF50', '#FFC107', '#FF9800'];
     let hash = 0;
@@ -261,9 +259,9 @@ export class TeamMembersDialogComponent implements OnInit {
   }
 
   openRemoveDialog(userId: number) {
-      if(confirm('להסיר את המשתמש מהצוות?')) {
-          this.removeMember(userId);
-      }
+    if (confirm('להסיר את המשתמש מהצוות?')) {
+      this.removeMember(userId);
+    }
   }
 
   removeMember(userId: number) {

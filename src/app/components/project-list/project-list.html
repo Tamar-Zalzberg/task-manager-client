@@ -1,15 +1,16 @@
 <div class="projects-container">
-  
+
   <div class="header-row">
     <div>
-      <h1 *ngIf="teamDetails">{{ teamDetails.name }}</h1> <p class="subtitle">ניהול פרויקטים ומשימות</p>
+      <h1 *ngIf="teamDetails">{{ teamDetails.name }}</h1>
+      <p class="subtitle">ניהול פרויקטים ומשימות</p>
     </div>
-    
+
     <div class="header-actions">
       <button mat-stroked-button (click)="goBack()">
         <mat-icon>arrow_forward</mat-icon> חזרה לצוותים
       </button>
-      
+
       <button mat-flat-button color="accent" (click)="manageTeamMembers()" style="background: #e0e7ff; color: #4338ca;">
         <mat-icon>group_add</mat-icon> ניהול חברים
       </button>
@@ -25,10 +26,10 @@
   </div>
 
   <div class="projects-grid" *ngIf="projects.length > 0">
-    
+
     <div *ngFor="let proj of projects" class="project-card" (click)="openProject(proj._id || proj.id)">
       <div class="card-left-border"></div>
-      
+
       <div class="card-content">
         <div class="card-icon">
           <mat-icon>folder</mat-icon>

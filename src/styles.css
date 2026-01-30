@@ -1,45 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
-/* איפוס ועיצוב בסיסי */
 body {
   margin: 0;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f7f8fa; /* הרקע האפור הבהיר של ClickUp */
+  background-color: #f7f8fa;
   color: #292d34;
   height: 100vh;
 }
 
-/* עיצוב גלילה מודרני (Scrollbar) */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #d1d5db;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
 }
 
-/* כותרות */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
   font-weight: 600;
 }
 
-/* כפתורים - דריסה של Material כדי שיהיה יותר מודרני */
 .mat-mdc-raised-button.mat-primary {
-  background-color: #7b68ee !important; /* הצבע הסגול שלנו */
+  background-color: #7b68ee !important;
   border-radius: 8px !important;
   box-shadow: 0 4px 6px rgba(123, 104, 238, 0.2) !important;
 }
 
 .mat-mdc-card {
   border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important; /* צללית רכה */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
   border: 1px solid #eaebef !important;
   background-color: white !important;
 }

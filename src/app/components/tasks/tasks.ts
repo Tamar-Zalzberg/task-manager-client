@@ -4,14 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { TasksService } from '../../services/tasks.service';
-
-// ייבוא הדיאלוגים (מהתיקיות הפנימיות)
 import { ConfirmDialogComponent } from '../dialogs/confirm-dialog/confirm-dialog';
 import { MessageDialogComponent } from '../dialogs/message-dialog/message-dialog';
-
-// ייבוא הפייפ לקיצור טקסט
 import { ShortenPipe } from '../../pipes/shorten.pipe';
-
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,19 +20,19 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   selector: 'app-tasks',
   standalone: true,
   imports: [
-    CommonModule, 
-    ReactiveFormsModule, 
-    FormsModule, 
-    MatCardModule, 
-    MatButtonModule, 
-    MatIconModule, 
-    MatFormFieldModule, 
-    MatInputModule, 
-    MatCheckboxModule, 
-    MatDividerModule, 
-    MatDialogModule, 
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatDividerModule,
+    MatDialogModule,
     MatTooltipModule,
-    ShortenPipe // <--- הוספנו את הפייפ לכאן כדי שנוכל להשתמש בו ב-HTML
+    ShortenPipe
   ],
   templateUrl: './tasks.html',
   styleUrls: ['./tasks.css']
@@ -62,7 +57,7 @@ export class TasksComponent implements OnInit {
   ngOnInit() {
     this.currentProjectId = this.route.snapshot.paramMap.get('projectId') || '';
     if (!this.currentProjectId) this.currentProjectId = localStorage.getItem('currentProjectId') || '';
-    
+
     if (this.currentProjectId) {
       localStorage.setItem('currentProjectId', this.currentProjectId);
       this.loadTasks();
@@ -71,7 +66,6 @@ export class TasksComponent implements OnInit {
     }
   }
 
-  // פונקציית עזר לפתיחת פופ-אפ שגיאה יפה
   showError(title: string, message: string) {
     this.dialog.open(MessageDialogComponent, {
       width: '350px',
@@ -109,10 +103,10 @@ export class TasksComponent implements OnInit {
   deleteTask(task: any) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',
-      data: { 
-        title: 'מחיקת משימה', 
+      data: {
+        title: 'מחיקת משימה',
         message: 'האם את בטוחה שאת רוצה למחוק את המשימה הזו?',
-        isDestructive: true 
+        isDestructive: true
       }
     });
 
@@ -136,7 +130,7 @@ export class TasksComponent implements OnInit {
       next: () => task.status = newStatus,
       error: (err: any) => {
         this.showError('שגיאה', 'עדכון הסטטוס נכשל');
-        task.status = task.status === 'completed' ? 'pending' : 'completed'; 
+        task.status = task.status === 'completed' ? 'pending' : 'completed';
       }
     });
   }
@@ -160,7 +154,7 @@ export class TasksComponent implements OnInit {
     this.tasksService.addComment(commentData).subscribe({
       next: (newComment: any) => {
         task.comments.push({
-          user: { username: 'אני' }, 
+          user: { username: 'אני' },
           content: newComment.body,
           ...newComment
         });

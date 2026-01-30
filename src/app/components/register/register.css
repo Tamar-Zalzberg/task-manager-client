@@ -27,10 +27,9 @@ mat-card-title {
 .full-width {
   width: 100%;
   margin-bottom: 10px;
-  text-align: right; /* ליישור שדות מימין לשמאל */
+  text-align: right;
 }
 
-/* כפתור גדול */
 button[type="submit"] {
   width: 100%;
   height: 48px;

@@ -12,10 +12,22 @@
   margin-bottom: 30px;
 }
 
-h1 { font-size: 28px; font-weight: 700; color: #292d34; margin: 0; }
-.subtitle { color: #7f7f7f; margin-top: 5px; }
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #292d34;
+  margin: 0;
+}
 
-.header-actions { display: flex; gap: 10px; }
+.subtitle {
+  color: #7f7f7f;
+  margin-top: 5px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
 
 /* שורת יצירה */
 .create-bar {
@@ -25,7 +37,7 @@ h1 { font-size: 28px; font-weight: 700; color: #292d34; margin: 0; }
   display: flex;
   align-items: center;
   gap: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   margin-bottom: 40px;
   border: 1px solid #eaebef;
 }
@@ -59,7 +71,7 @@ h1 { font-size: 28px; font-weight: 700; color: #292d34; margin: 0; }
 
 .project-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   border-color: #7b68ee;
 }
 
@@ -90,8 +102,17 @@ h1 { font-size: 28px; font-weight: 700; color: #292d34; margin: 0; }
   align-items: center;
 }
 
-.card-text h3 { margin: 0; font-size: 16px; font-weight: 600; }
-.card-text p { margin: 5px 0 0; font-size: 12px; color: #888; }
+.card-text h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card-text p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #888;
+}
 
 .card-actions {
   border-top: 1px solid #f5f5f5;
@@ -101,5 +122,15 @@ h1 { font-size: 28px; font-weight: 700; color: #292d34; margin: 0; }
   background: #fafafa;
 }
 
-.empty-state { text-align: center; color: #bbb; margin-top: 50px; }
-.empty-state mat-icon { font-size: 60px; width: 60px; height: 60px; opacity: 0.5; }
+.empty-state {
+  text-align: center;
+  color: #bbb;
+  margin-top: 50px;
+}
+
+.empty-state mat-icon {
+  font-size: 60px;
+  width: 60px;
+  height: 60px;
+  opacity: 0.5;
+}

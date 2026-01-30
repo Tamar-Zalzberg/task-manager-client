@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-
-// ייבוא של רכיבי העיצוב (Material)
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -13,7 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-login',
   standalone: true,
-  // כאן אנחנו מייבאים את כל המודולים שהמסך הזה צריך
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -35,7 +32,6 @@ export class LoginComponent {
     private authService: AuthService,
     private router: Router
   ) {
-    // יצירת הטופס עם בדיקות תקינות (Validators)
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]]
@@ -47,7 +43,7 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value).subscribe({
         next: (res) => {
           console.log('Login successful');
-          this.router.navigate(['/teams']); // אחרי התחברות עוברים למסך הצוותים
+          this.router.navigate(['/teams']);
         },
         error: (err) => {
           console.error(err);

@@ -18,14 +18,13 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* אזור יצירת צוות - שורה נקייה */
 .create-team-bar {
   display: flex;
   gap: 15px;
   background: white;
   padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   border: 1px solid #eee;
   margin-bottom: 40px;
   align-items: center;
@@ -40,12 +39,11 @@ h1 {
 }
 
 .create-btn {
-  background-color: #7b68ee !important; /* ClickUp Purple */
+  background-color: #7b68ee !important;
   border-radius: 8px !important;
   height: 40px;
 }
 
-/* הגריד של הצוותים */
 .teams-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -66,11 +64,10 @@ h1 {
 
 .team-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.06);
   border-color: #7b68ee;
 }
 
-/* פס צבע עליון לכרטיס */
 .card-color-strip {
   height: 6px;
   background: linear-gradient(90deg, #7b68ee, #a855f7);
@@ -110,7 +107,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* כפתורים למטה */
 .card-actions {
   padding: 15px 24px;
   background: #fbfbfb;
@@ -139,6 +135,7 @@ h1 {
 .delete-btn {
   color: #e0e0e0;
 }
+
 .delete-btn:hover {
   color: #ff5555;
   background: #fff0f0;

@@ -8,6 +8,6 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class AppComponent { // השם כאן חייב להיות AppComponent
+export class AppComponent {
   title = 'task-manager';
 }

@@ -6,8 +6,6 @@ import { MatDialog, MatDialogRef, MatDialogModule, MAT_DIALOG_DATA } from '@angu
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { TeamsService } from '../../services/teams.service';
 import { TeamMembersDialogComponent } from '../team-members-dialog.component';
-
-// Material Imports
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -82,7 +80,7 @@ export class TeamsComponent implements OnInit {
 
   deleteTeam(event: Event, teamId: string) {
     event.stopPropagation();
-    
+
     const dialogRef = this.dialog.open(ConfirmDeleteTeamDialogComponent, {
       width: '400px',
       disableClose: false,
@@ -109,7 +107,7 @@ export class TeamsComponent implements OnInit {
 
   openMembersDialog(event: Event, teamId: string, teamName: string) {
     event.stopPropagation();
-    
+
     this.dialog.open(TeamMembersDialogComponent, {
       width: '500px',
       data: { teamId, teamName },
@@ -119,7 +117,6 @@ export class TeamsComponent implements OnInit {
   }
 }
 
-// --- הקומפוננטה המתוקנת ---
 @Component({
   selector: 'app-confirm-delete-team-dialog',
   standalone: true,
@@ -146,8 +143,7 @@ export class TeamsComponent implements OnInit {
   `]
 })
 export class ConfirmDeleteTeamDialogComponent {
-  // התיקון כאן: הוספנו @Inject(MatDialogRef)
   constructor(
     @Inject(MatDialogRef) public dialogRef: MatDialogRef<ConfirmDeleteTeamDialogComponent>
-  ) {}
+  ) { }
 }

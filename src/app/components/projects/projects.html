@@ -1,11 +1,12 @@
 <div class="projects-container">
-  
+
   <div class="page-header">
     <h1>צוותים</h1>
     <p>נהל את הפרויקטים והמשימות של הצוות שלך</p>
   </div>
 
-  <div *ngIf="errorMessage" style="background: #fee; border-left: 4px solid #f44; padding: 12px; border-radius: 8px; color: #c33; margin-bottom: 20px;">
+  <div *ngIf="errorMessage"
+    style="background: #fee; border-left: 4px solid #f44; padding: 12px; border-radius: 8px; color: #c33; margin-bottom: 20px;">
     {{ errorMessage }}
   </div>
 
@@ -18,7 +19,7 @@
         <mat-label>שם הצוות</mat-label>
         <input matInput [(ngModel)]="newTeamName" placeholder="למשל: פיתוח Frontend">
       </mat-form-field>
-      
+
       <button mat-fab color="primary" (click)="createTeam()" [disabled]="!newTeamName" matTooltip="הוצר צוות חדש">
         <mat-icon>add</mat-icon>
       </button>
@@ -26,18 +27,15 @@
   </mat-card>
 
   <div class="projects-grid" *ngIf="teams.length > 0">
-    <mat-card 
-      *ngFor="let team of teams" 
-      class="project-card" 
-      (click)="openTeam(team._id || team.id)">
-      
+    <mat-card *ngFor="let team of teams" class="project-card" (click)="openTeam(team._id || team.id)">
+
       <div class="project-header">
         <div class="project-icon">
           <mat-icon>group_work</mat-icon>
         </div>
         <h3 class="project-name">{{ team.name }}</h3>
       </div>
-      
+
       <div class="project-info">
         <span>
           <mat-icon style="font-size: 16px; height: 16px; width: 16px;">assignment</mat-icon>
@@ -48,13 +46,13 @@
           חברים
         </span>
       </div>
-      
+
       <div class="project-actions">
         <button mat-button color="primary" (click)="addMember($event, team._id || team.id)">
           <mat-icon>person_add</mat-icon>
           <span>הוסף חבר</span>
         </button>
-        
+
         <button mat-icon-button color="warn" (click)="deleteTeam($event, team._id || team.id)" matTooltip="מחק צוות">
           <mat-icon>delete</mat-icon>
         </button>
@@ -62,7 +60,7 @@
 
     </mat-card>
   </div>
-  
+
   <div *ngIf="teams.length === 0" class="empty-state">
     <mat-icon>folder_open</mat-icon>
     <h2>אין לך צוותים עדיין</h2>

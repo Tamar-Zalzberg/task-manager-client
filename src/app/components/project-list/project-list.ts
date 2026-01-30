@@ -4,13 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ProjectsService } from '../../services/projects.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-
-// ייבוא הדיאלוגים - התיקון כאן (הוספנו את שם התיקייה לנתיב)
 import { TeamMembersDialogComponent } from '../team-members-dialog.component'; // זה כנראה נשאר אותו דבר אם לא הזזת אותו
 import { ConfirmDialogComponent } from '../dialogs/confirm-dialog/confirm-dialog';
 import { InputDialogComponent } from '../dialogs/input-dialog/input-dialog';
 import { MessageDialogComponent } from '../dialogs/message-dialog/message-dialog';
-
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -39,7 +36,7 @@ export class ProjectListComponent implements OnInit {
     private router: Router,
     private projectsService: ProjectsService,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.teamId = this.route.snapshot.paramMap.get('teamId') || localStorage.getItem('currentTeamId') || '';
@@ -80,15 +77,14 @@ export class ProjectListComponent implements OnInit {
       })
     });
   }
-  
-  // החלפת ה-PROMPT בדיאלוג מעוצב
+
   editProject(project: any) {
     const dialogRef = this.dialog.open(InputDialogComponent, {
       width: '400px',
-      data: { 
-        title: 'עריכת שם פרויקט', 
-        label: 'שם הפרויקט החדש', 
-        initialValue: project.name 
+      data: {
+        title: 'עריכת שם פרויקט',
+        label: 'שם הפרויקט החדש',
+        initialValue: project.name
       }
     });
 
@@ -104,15 +100,13 @@ export class ProjectListComponent implements OnInit {
       }
     });
   }
-
-  // החלפת ה-CONFIRM בדיאלוג מעוצב
   deleteProject(project: any) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',
-      data: { 
-        title: 'מחיקת פרויקט', 
-        message: `האם למחוק את פרויקט "${project.name}"?`, 
-        isDestructive: true 
+      data: {
+        title: 'מחיקת פרויקט',
+        message: `האם למחוק את פרויקט "${project.name}"?`,
+        isDestructive: true
       }
     });
 

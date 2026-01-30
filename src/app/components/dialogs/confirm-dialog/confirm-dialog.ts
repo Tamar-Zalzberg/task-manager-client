@@ -12,5 +12,5 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./confirm-dialog.css']
 })
 export class ConfirmDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { title: string; message: string; confirmText?: string; isDestructive?: boolean }) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { title: string; message: string; confirmText?: string; isDestructive?: boolean }) { }
 }

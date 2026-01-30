@@ -7,12 +7,10 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:3000/api/auth'; // הכתובת של השרת
-  private tokenKey = 'token'; // איפה נשמור את מפתח הכניסה
+  private apiUrl = 'http://localhost:3000/api/auth';
+  private tokenKey = 'token';
 
   constructor(private http: HttpClient) { }
-
-  // פונקציה להרשמה
   register(user: any) {
     return this.http.post(`${this.apiUrl}/register`, user).pipe(
       tap((response: any) => {
@@ -23,7 +21,6 @@ export class AuthService {
     );
   }
 
-  // פונקציה להתחברות
   login(user: any) {
     return this.http.post(`${this.apiUrl}/login`, user).pipe(
       tap((response: any) => {
@@ -34,17 +31,14 @@ export class AuthService {
     );
   }
 
-  // פונקציה לקבלת הטוקן
   getToken() {
     return localStorage.getItem(this.tokenKey);
   }
 
-  // בדיקה אם המשתמש מחובר
   isLoggedIn(): boolean {
     return !!localStorage.getItem(this.tokenKey);
   }
 
-  // יציאה מהמערכת
   logout() {
     localStorage.removeItem(this.tokenKey);
   }

@@ -1,5 +1,5 @@
 <div class="teams-container">
-  
+
   <h1>הצוותים שלי</h1>
   <p class="subtitle">נהל את מרחבי העבודה והפרויקטים שלך במקום אחד</p>
 
@@ -14,10 +14,11 @@
   </div>
 
   <div class="teams-grid">
-    <div *ngFor="let team of teams" class="team-card" (click)="router.navigate(['/teams', team.id || team._id, 'projects'])">
-      
+    <div *ngFor="let team of teams" class="team-card"
+      (click)="router.navigate(['/teams', team.id || team._id, 'projects'])">
+
       <div class="card-color-strip"></div>
-      
+
       <div class="card-content">
         <div class="card-header">
           <h3 class="team-title">{{ team.name }}</h3>
@@ -27,18 +28,18 @@
       </div>
 
       <div class="card-actions">
-        <button mat-button class="action-btn add-member-btn" 
-                (click)="$event.stopPropagation(); openMembersDialog($event, team.id || team._id, team.name)">
+        <button mat-button class="action-btn add-member-btn"
+          (click)="$event.stopPropagation(); openMembersDialog($event, team.id || team._id, team.name)">
           <mat-icon style="font-size: 18px; width: 18px; height: 18px; margin-left: 5px;">person_add</mat-icon>
           הוסף חבר
         </button>
 
-        <button mat-icon-button class="action-btn delete-btn" 
-                (click)="$event.stopPropagation(); deleteTeam($event, team.id || team._id)" matTooltip="מחק צוות">
+        <button mat-icon-button class="action-btn delete-btn"
+          (click)="$event.stopPropagation(); deleteTeam($event, team.id || team._id)" matTooltip="מחק צוות">
           <mat-icon>delete_outline</mat-icon>
         </button>
       </div>
-    
+
     </div>
   </div>
 
