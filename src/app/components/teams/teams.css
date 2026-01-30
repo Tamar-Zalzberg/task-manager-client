@@ -1,10 +1,12 @@
 .teams-container {
   padding: 40px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; /* זה מה שממרכז את הקופסה הראשית באמצע המסך */
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: #fcfcfc;
   min-height: 100vh;
+  direction: rtl; /* הוספתי: הופך את כל העמוד לימין-לשמאל */
+  text-align: right; /* הוספתי: מיישר את הטקסט לימין */
 }
 
 h1 {
@@ -30,18 +32,27 @@ h1 {
   align-items: center;
 }
 
+/* תיקון קטן כדי שהכפתור והאינפוט יסתדרו יפה בעברית */
+.create-team-bar form {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
 .create-team-bar input {
   flex: 1;
   border: none;
   outline: none;
   font-size: 16px;
   padding: 10px;
+  background: transparent;
 }
 
 .create-btn {
   background-color: #7b68ee !important;
   border-radius: 8px !important;
   height: 40px;
+  padding: 0 25px !important; /* קצת יותר רווח בכפתור */
 }
 
 .teams-grid {
@@ -60,6 +71,7 @@ h1 {
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: pointer; /* הוספתי: שיראו שזה לחיץ */
 }
 
 .team-card:hover {
@@ -99,6 +111,7 @@ h1 {
   background: #f4f5f7;
   padding: 4px 8px;
   border-radius: 4px;
+  white-space: nowrap; /* שלא ישבור שורות */
 }
 
 .description {

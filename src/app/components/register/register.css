@@ -1,9 +1,11 @@
-.login-container {
+/* שיניתי את השם כאן כדי שיתאים ל-HTML */
+.register-container { 
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(135deg, #f7f8fa 0%, #eef2f6 100%);
+  direction: rtl; /* הוספתי שיהיה מימין לשמאל מסודר */
 }
 
 mat-card {
@@ -54,6 +56,7 @@ a {
   font-size: 14px;
   margin-top: 20px;
   display: block;
+  text-align: center; /* וידוא שהקישור באמצע */
 }
 
 a:hover {
