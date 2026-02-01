@@ -1,39 +1,51 @@
-<div class="login-container">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>התחברות למערכת</mat-card-title>
-    </mat-card-header>
+<div class="page-container">
+  <nav class="navbar">
+    <div class="brand" routerLink="/">
+      <span class="logo-icon">Wolf</span>Tasks
+    </div>
+    <div class="nav-buttons">
+      <a routerLink="/about" class="btn-text">מי אנחנו</a>
+      <a routerLink="/pricing" class="btn-text">מחירים</a>
+      <a routerLink="/login" class="btn-text active">כניסה</a>
+      <a routerLink="/register" class="btn-primary-soft">הרשמה</a>
+    </div>
+  </nav>
 
-    <mat-card-content>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <main class="content-center">
+    <div class="auth-card">
+      <div class="card-header">
+        <h2>ברוכים השבים! 👋</h2>
+        <p class="subtitle">הכניסו פרטים כדי להמשיך לנהל את המשימות.</p>
+      </div>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>אימייל</mat-label>
-          <input matInput formControlName="email" type="email">
-          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
-            נא להזין כתובת אימייל תקינה
-          </mat-error>
-        </mat-form-field>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>כתובת אימייל</label>
+          <input type="email" [(ngModel)]="email" name="email" placeholder="name@example.com" required>
+        </div>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>סיסמה</mat-label>
-          <input matInput formControlName="password" type="password">
-        </mat-form-field>
+        <div class="form-group">
+          <label>סיסמה</label>
+          <input type="password" [(ngModel)]="password" name="password" placeholder="••••••••" required>
+        </div>
 
-        <div class="error-msg" *ngIf="errorMessage">
+        <div *ngIf="errorMessage" class="error-msg">
           {{ errorMessage }}
         </div>
 
-        <div class="actions">
-          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
-            התחבר
-          </button>
-        </div>
+        <button type="submit" class="btn-submit">כניסה למערכת</button>
       </form>
-    </mat-card-content>
 
-    <mat-card-actions>
-      <a routerLink="/register">אין לך חשבון? הירשם כאן</a>
-    </mat-card-actions>
-  </mat-card>
+      <div class="card-footer">
+        <p>אין לך עדיין חשבון? <a routerLink="/register">להרשמה בחינם</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>
+      פותח ע"י <strong>תמר זלצברג</strong> &nbsp;|&nbsp; 
+      <a href="mailto:t0527114699@gmail.com">t0527114699@gmail.com</a>
+    </p>
+  </footer>
 </div>
