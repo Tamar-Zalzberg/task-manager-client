@@ -48,12 +48,12 @@ private apiUrl = 'https://wolf-server-dzci.onrender.com/api/teams';
   }
 
   searchUserByEmail(email: string): Observable<any> {
-    const url = 'http://localhost:3000/api/auth/search-user';
+    const url = 'https://wolf-server-dzci.onrender.com';
     return this.http.get(`${url}?email=${encodeURIComponent(email)}`, this.getHeaders());
   }
 
   getAllUsers(): Observable<any[]> {
-    const url = 'http://localhost:3000/api/auth/users';
+    const url = 'https://wolf-server-dzci.onrender.com';
     return this.http.get<any[]>(url, this.getHeaders());
   }
 }
