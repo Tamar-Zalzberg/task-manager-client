@@ -1,56 +1,70 @@
-<div class="landing-container">
+<div class="landing-wrapper">
   <nav class="navbar">
-    <div class="logo">Wolf<span class="highlight">Tasks</span></div>
-    <div class="nav-links">
-      <a routerLink="/login" class="nav-btn login-btn">כניסה למערכת</a>
-      <a routerLink="/register" class="nav-btn register-btn">הצטרפות</a>
+    <div class="brand">
+      <span class="logo-icon">Wolf</span>Tasks
+    </div>
+    <div class="nav-buttons">
+      <a routerLink="/login" class="btn-text">כניסה</a>
+      <a routerLink="/register" class="btn-primary-soft">הרשמה בחינם</a>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>הדרך החכמה <br> <span class="gradient-text">לנהל פרויקטים</span></h1>
-      <p class="subtitle">
-        הפסיקו לרדוף אחרי משימות. המערכת שתעזור לצוות שלכם לעבוד בסנכרון מושלם,
-        בעיצוב חדשני ובמהירות שיא.
+  <main class="main-content">
+    <div class="hero-text">
+      <h1>
+        לנהל את העבודה.<br>
+        <span class="highlight">בצורה מושלמת.</span>
+      </h1>
+      <p class="sub-text">
+        הכלי האולטימטיבי לניהול משימות וצוותים.
+        ממשק נקי, מהיר וחכם שנותן לך שקט נפשי.
       </p>
       
-      <div class="cta-buttons">
-        <button routerLink="/register" class="cta-btn primary">התחילי עכשיו בחינם 🚀</button>
-        <button routerLink="/login" class="cta-btn secondary">כניסה למנויים</button>
+      <div class="cta-wrapper">
+        <button routerLink="/register" class="btn-primary-large">התחילו לעבוד עכשיו</button>
+        <p class="hint">ללא צורך באשראי • חינם לשימוש</p>
       </div>
     </div>
-    
-    <div class="hero-visual">
-      <div class="glass-card card-1">
-        <span class="icon">✅</span> משימות הושלמו
-      </div>
-      <div class="glass-card card-2">
-        <span class="icon">📊</span> מעקב התקדמות
-      </div>
-      <div class="glow-circle"></div>
-    </div>
-  </header>
 
-  <section class="features">
-    <div class="feature-card">
-      <div class="card-icon">⚡</div>
-      <h3>מהירות עבודה</h3>
-      <p>ממשק מהיר במיוחד שחוסך זמן יקר לצוות.</p>
+    <div class="ui-mockup">
+      <div class="mockup-header">
+        <div class="circles">
+          <span class="c red"></span>
+          <span class="c yellow"></span>
+          <span class="c green"></span>
+        </div>
+      </div>
+      <div class="mockup-body">
+        <div class="sidebar"></div>
+        <div class="list-area">
+          <div class="skeleton title"></div>
+          
+          <div class="task-row">
+            <div class="check"></div>
+            <div class="skeleton text long"></div>
+            <div class="status done">בוצע</div>
+          </div>
+          
+          <div class="task-row active">
+            <div class="check"></div>
+            <div class="skeleton text medium"></div>
+            <div class="status process">בתהליך</div>
+          </div>
+          
+          <div class="task-row">
+            <div class="check"></div>
+            <div class="skeleton text short"></div>
+            <div class="status wait">ממתין</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="card-icon">🔐</div>
-      <h3>אבטחה מקסימלית</h3>
-      <p>המידע שלכם מוצפן ומאובטח בסטנדרט הגבוה ביותר.</p>
-    </div>
-    <div class="feature-card">
-      <div class="card-icon">🎨</div>
-      <h3>ממשק מדהים</h3>
-      <p>חווית משתמש שכיף לפתוח כל בוקר מחדש.</p>
-    </div>
-  </section>
+  </main>
 
-  <footer>
-    <p>© 2024 WolfTasks Project. פיתוח: תמר זלצברג</p>
+  <footer class="footer">
+    <p>
+      פותח ע"י <strong>תמר זלצברג</strong> &nbsp;|&nbsp; 
+      <a href="mailto:t0527114699@gmail.com">t0527114699@gmail.com</a>
+    </p>
   </footer>
 </div>

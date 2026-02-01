@@ -1,229 +1,228 @@
-/* Container & Background */
-.landing-container {
-  font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
-  color: white;
-  min-height: 100vh;
-  overflow-x: hidden;
+/* הגדרות בסיס - ללא גלילה */
+:host {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #fcfcfd; /* לבן-אפרפר נקי */
+  color: #2b2d42;
   direction: rtl;
+}
+
+.landing-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Navbar */
 .navbar {
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.03);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0 40px;
+  background: white;
+  border-bottom: 1px solid #edf2f7;
 }
 
-.logo {
-  font-size: 1.8rem;
+.brand {
+  font-size: 1.5rem;
   font-weight: 800;
-  letter-spacing: 1px;
+  color: #2d3748;
 }
 
-.highlight {
-  color: #a855f7; /* Purple Neon */
+.logo-icon {
+  color: #7b68ee; /* סגול יוקרתי */
 }
 
-.nav-links {
+.nav-buttons {
   display: flex;
   gap: 15px;
-}
-
-.nav-btn {
-  text-decoration: none;
-  padding: 8px 20px;
-  border-radius: 8px;
-  transition: 0.3s;
-  font-weight: 500;
-}
-
-.login-btn {
-  color: #cbd5e1;
-}
-
-.login-btn:hover {
-  color: white;
-}
-
-.register-btn {
-  background: linear-gradient(90deg, #6366f1, #a855f7);
-  color: white;
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
-}
-
-.register-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
-}
-
-/* Hero Section */
-.hero {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 80px 60px;
-  min-height: 85vh;
-  position: relative;
 }
 
-.hero-content {
-  max-width: 550px;
-  z-index: 2;
+.btn-text {
+  text-decoration: none;
+  color: #718096;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-text:hover { color: #2d3748; }
+
+.btn-primary-soft {
+  text-decoration: none;
+  background: #f3f0ff; /* סגול בהיר מאוד */
+  color: #7b68ee;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.btn-primary-soft:hover {
+  background: #e9e6ff;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  gap: 50px;
+}
+
+.hero-text {
+  max-width: 500px;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   line-height: 1.1;
-  margin-bottom: 20px;
   font-weight: 800;
+  margin-bottom: 20px;
+  color: #1a202c;
 }
 
-.gradient-text {
-  background: linear-gradient(90deg, #c084fc, #6366f1);
+.highlight {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); /* מדגיש עדין */
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: #2b6cb0; /* Fallback */
 }
 
-.subtitle {
+.sub-text {
   font-size: 1.2rem;
-  color: #94a3b8;
-  margin-bottom: 40px;
+  color: #718096;
   line-height: 1.6;
+  margin-bottom: 35px;
 }
 
-.cta-buttons {
-  display: flex;
-  gap: 20px;
-}
-
-.cta-btn {
-  padding: 16px 32px;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
+.btn-primary-large {
+  background: #7b68ee;
+  color: white;
   border: none;
-  transition: all 0.3s ease;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(123, 104, 238, 0.4);
+  transition: transform 0.2s;
 }
 
-.primary {
+.btn-primary-large:hover {
+  transform: translateY(-2px);
+  background: #6c5ce7;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: #a0aec0;
+  margin-top: 10px;
+}
+
+/* UI Mockup - הלוח המדומה */
+.ui-mockup {
+  width: 500px;
+  height: 320px;
   background: white;
-  color: #0f172a;
-}
-
-.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
-}
-
-.secondary {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.secondary:hover {
-  border-color: white;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* Visuals */
-.hero-visual {
-  position: relative;
-  width: 400px;
-  height: 400px;
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(12px);
-  padding: 20px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: absolute;
-  color: white;
-  font-weight: bold;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-  animation: float 6s infinite ease-in-out;
-}
-
-.card-1 {
-  top: 20%;
-  right: 0;
-  animation-delay: 0s;
-}
-
-.card-2 {
-  bottom: 20%;
-  left: 0;
-  animation-delay: 3s;
-}
-
-.glow-circle {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: #6366f1;
-  filter: blur(100px);
-  opacity: 0.2;
-  border-radius: 50%;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
-}
-
-/* Features */
-.features {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); /* צל עמוק ורך */
+  border: 1px solid #e2e8f0;
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 60px;
-  flex-wrap: wrap;
-  background: rgba(0,0,0,0.2);
+  flex-direction: column;
+  overflow: hidden;
+  transform: rotate(-2deg); /* הטיה קטנה ומגניבה */
+  transition: transform 0.3s;
 }
 
-.feature-card {
-  background: #1e293b;
-  padding: 30px;
-  border-radius: 20px;
-  width: 280px;
+.ui-mockup:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.mockup-header {
+  height: 36px;
+  background: #f7fafc;
+  border-bottom: 1px solid #edf2f7;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.circles { display: flex; gap: 6px; }
+.c { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #fc8181; }
+.yellow { background: #f6e05e; }
+.green { background: #68d391; }
+
+.mockup-body { flex: 1; display: flex; }
+.sidebar { width: 80px; background: #f7fafc; border-left: 1px solid #edf2f7; }
+.list-area { flex: 1; padding: 25px; display: flex; flex-direction: column; gap: 12px; }
+
+/* Skeleton Loading Elements */
+.skeleton { background: #edf2f7; border-radius: 4px; }
+.title { height: 20px; width: 40%; margin-bottom: 15px; background: #cbd5e0; }
+
+.task-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid #edf2f7;
+  border-radius: 8px;
+  background: white;
+}
+
+.task-row.active {
+  border-color: #7b68ee;
+  box-shadow: 0 2px 5px rgba(123, 104, 238, 0.1);
+}
+
+.check { width: 18px; height: 18px; border: 2px solid #cbd5e0; border-radius: 50%; }
+.text { height: 10px; }
+.long { width: 60%; }
+.medium { width: 50%; }
+.short { width: 40%; }
+
+.status {
+  margin-right: auto;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.done { background: #c6f6d5; color: #276749; }
+.process { background: #e9d8fd; color: #553c9a; }
+.wait { background: #edf2f7; color: #4a5568; }
+
+/* Footer */
+.footer {
   text-align: center;
-  transition: 0.3s;
-  border: 1px solid rgba(255,255,255,0.05);
-}
-
-.feature-card:hover {
-  transform: translateY(-10px);
-  border-color: #a855f7;
-}
-
-.card-icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-h3 { margin-bottom: 10px; color: white; }
-p { color: #94a3b8; font-size: 0.95rem; }
-
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #64748b;
+  padding: 15px;
   font-size: 0.9rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  color: #718096;
+  background: white;
+  border-top: 1px solid #edf2f7;
+}
+
+.footer a {
+  color: #7b68ee;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover { text-decoration: underline; }
+
+/* התאמה למובייל */
+@media (max-width: 900px) {
+  .main-content { flex-direction: column; justify-content: center; text-align: center; }
+  .ui-mockup { display: none; } /* נעלים את התמונה במובייל כדי לחסוך מקום */
+  h1 { font-size: 2.5rem; }
 }

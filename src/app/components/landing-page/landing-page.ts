@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // בשביל דברים בסיסיים של אנגולר
-import { RouterLink } from '@angular/router';   // <--- זה הכי חשוב! בשביל שהכפתורים יעבדו
+import { RouterLink } from '@angular/router'; // חובה בשביל שהכפתורים יעבדו
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink], 
   templateUrl: './landing-page.html',
-  styleUrl: './landing-page.css' 
+  styleUrl: './landing-page.css'
 })
 export class LandingPageComponent {
 }
