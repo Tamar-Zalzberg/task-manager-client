@@ -7,7 +7,6 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  // כתובת ה-API הראשית ב-Render
   private apiUrl = 'https://wolf-server-dzci.onrender.com/api/auth';
   private tokenKey = 'token';
 
@@ -17,30 +16,30 @@ export class AuthService {
     const token = localStorage.getItem(this.tokenKey);
     return {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        'Authorization': `Bearer ${token}`
       })
     };
   }
 
-  // זו הפונקציה שחייבת להיות מדויקת כדי שהחץ ייפתח!
-getUsers(): Observable<any> {
-  const token = localStorage.getItem('token');
-  const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-  // הכתובת הזו חייבת להיות של Render ולא localhost!
-  return this.http.get('https://wolf-server-dzci.onrender.com/api/auth/users', { headers });
-}
+  // הפונקציה שהחץ (הגלילה) צריכה
+  getUsers(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/users`, this.getHeaders());
+  }
 
-  // שאר הפונקציות הקיימות שלך...
+  // הפונקציה שגרמה לקריסת ה-Deploy - עכשיו היא חזרה!
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem(this.tokenKey);
+  }
+
   register(user: any) {
     return this.http.post(`${this.apiUrl}/register`, user).pipe(
-      tap((res: any) => res.token && localStorage.setItem(this.tokenKey, res.token))
+      tap((res: any) => { if (res.token) localStorage.setItem(this.tokenKey, res.token); })
     );
   }
 
   login(user: any) {
     return this.http.post(`${this.apiUrl}/login`, user).pipe(
-      tap((res: any) => res.token && localStorage.setItem(this.tokenKey, res.token))
+      tap((res: any) => { if (res.token) localStorage.setItem(this.tokenKey, res.token); })
     );
   }
 
