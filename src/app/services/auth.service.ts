@@ -22,9 +22,16 @@ export class AuthService {
   }
 
   // הפונקציה שהחץ (הגלילה) צריכה
-  getUsers(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/users`, this.getHeaders());
-  }
+getUsers(): Observable<any> {
+  const token = localStorage.getItem(this.tokenKey);
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+  
+  // שיניתי מ-api/auth/users ל-api/users
+  // זו הכתובת שהשרת בדרך כלל מחפש עבור רשימת כל המשתמשים
+  return this.http.get('https://wolf-server-dzci.onrender.com/api/users', { headers });
+}
 
   // הפונקציה שגרמה לקריסת ה-Deploy - עכשיו היא חזרה!
   isLoggedIn(): boolean {
