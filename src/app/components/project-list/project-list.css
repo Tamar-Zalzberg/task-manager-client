@@ -1,57 +1,161 @@
-/* עיצוב כללי לעמוד */
 :host {
   display: block;
   min-height: 100vh;
-  background-color: #fcfcfd;
-  font-family: 'Segoe UI', sans-serif;
+  background-color: #fcfcfd; /* רקע בהיר ויוקרתי */
+  font-family: 'Segoe UI', system-ui, sans-serif;
   direction: rtl;
 }
 
 .projects-container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* כפתורים בסטייל ClickUp */
-.btn-outline { background: white; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 8px; cursor: pointer; }
-.btn-secondary { background: #f0f4ff; color: #5c59f2; border: 1px solid #dce4ff; padding: 8px 16px; border-radius: 8px; cursor: pointer; }
-.btn-primary { background: #7b68ee; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+/* כותרת עליונה */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
 
-/* עיצוב שורת היצירה */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin: 0;
+}
+
+.subtitle {
+  color: #718096;
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+/* כפתורי פעולה עליונים */
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #4a5568;
+  padding: 10px 20px;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-secondary {
+  background: #f0f4ff;
+  color: #5c59f2;
+  border: 1px solid #dce4ff;
+  padding: 10px 20px;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* שורת יצירת פרויקט - סטייל ClickUp */
 .create-bar {
   background: white;
   border: 1px solid #edf2f7;
-  border-radius: 12px;
-  padding: 15px 20px;
+  border-radius: 14px;
+  padding: 18px 25px;
   display: flex;
+  align-items: center;
   gap: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .input-clean {
   flex: 1;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 1rem;
   background: #f8fafc;
   outline: none;
+  transition: 0.2s;
 }
 
-/* עיצוב המודאל (הפופ-אפ) הקיים שלך */
-::ng-deep .mat-mdc-dialog-container {
-  border-radius: 16px !important;
+.input-clean:focus {
+  background: white;
+  border-color: #7b68ee;
+  box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.1);
 }
 
-/* תיקון ה"חץ" בתוך הפופ-אפ שיוכל לגלול */
-::ng-deep .mat-mdc-select-trigger {
-  color: #5c59f2 !important;
-  font-weight: 600 !important;
+.btn-primary {
+  background: #7b68ee;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-/* עיצוב רשימת הבחירה עצמה */
-::ng-deep .mat-mdc-select-panel {
-  background: white !important;
-  border-radius: 12px !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+/* גריד וכרטיסי פרויקטים */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
 }
+
+.project-card {
+  background: white;
+  border: 1px solid #eaebef;
+  border-radius: 16px;
+  padding: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: #7b68ee;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 10px;
+}
+
+.card-desc {
+  color: #a0aec0;
+  font-size: 0.95rem;
+}
+
+/* כפתורי עריכה/מחיקה עדינים */
+.card-actions {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #f7fafc;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.btn-action {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a0aec0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-action:hover { color: #7b68ee; }
+.btn-action.delete:hover { color: #ef4444; }

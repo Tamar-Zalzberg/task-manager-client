@@ -2,7 +2,7 @@
   <div class="header-row">
     <div>
       <h1 *ngIf="teamDetails">{{ teamDetails.name }}</h1>
-      <p class="subtitle">ניהול פרויקטים ומשימות</p>
+      <p class="subtitle">ניהול פרויקטים ומשימות בצוות</p>
     </div>
     <div class="header-actions">
       <button class="btn-outline" (click)="goBack()">← חזרה לצוותים</button>
@@ -11,20 +11,30 @@
   </div>
 
   <div class="create-bar">
-    <input class="input-clean" [(ngModel)]="newProjectName" placeholder="שם הפרויקט החדש..." (keyup.enter)="createProject()">
-    <button class="btn-primary" (click)="createProject()" [disabled]="!newProjectName">צור פרויקט</button>
+    <input 
+      class="input-clean"
+      [(ngModel)]="newProjectName" 
+      placeholder="מה שם הפרויקט הבא שלך?" 
+      (keyup.enter)="createProject()">
+    <button class="btn-primary" (click)="createProject()" [disabled]="!newProjectName">
+      + צור פרויקט
+    </button>
   </div>
 
-  <div class="projects-grid">
+  <div class="projects-grid" *ngIf="projects.length > 0">
     <div *ngFor="let proj of projects" class="project-card" (click)="openProject(proj._id || proj.id)">
       <div class="card-content">
         <h3 class="card-title">{{ proj.name }}</h3>
-        <p class="card-desc">לחץ לצפייה במשימות</p>
+        <p class="card-desc">לחץ כאן כדי לנהל את המשימות</p>
       </div>
       <div class="card-actions">
         <button class="btn-action" (click)="$event.stopPropagation(); editProject(proj)">עריכה</button>
         <button class="btn-action delete" (click)="$event.stopPropagation(); deleteProject(proj)">מחיקה</button>
       </div>
     </div>
+  </div>
+
+  <div *ngIf="projects.length === 0" class="empty-state" style="text-align: center; padding: 100px 0; color: #cbd5e0;">
+    <p style="font-size: 1.2rem;">אין פרויקטים בצוות זה. הגיע הזמן ליצור אחד!</p>
   </div>
 </div>
