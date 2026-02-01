@@ -1,19 +1,18 @@
 <div class="tasks-container">
 
   <div class="header-row">
-    <button (click)="goBack()" style="background:none; border:none; cursor:pointer; color:#718096;">
-      <span style="font-size: 1.5rem;">→</span>
+    <button mat-icon-button (click)="goBack()" class="back-btn">
+      <mat-icon>arrow_forward</mat-icon>
     </button>
     <h1>משימות הפרויקט</h1>
   </div>
 
   <div class="quick-add-task">
-    <span style="color: #7b68ee; font-size: 1.5rem;">⊕</span>
+    <mat-icon style="color: #7b68ee;">add_circle_outline</mat-icon>
     <form [formGroup]="taskForm" (ngSubmit)="createTask()" style="flex: 1; display: flex;">
       <input formControlName="title" placeholder="הוסף משימה חדשה ולחץ Enter...">
     </form>
-    <button class="btn-primary" (click)="createTask()" [disabled]="taskForm.invalid" 
-      style="background:#7b68ee; color:white; border:none; padding:8px 16px; border-radius:8px; cursor:pointer; font-weight:600;">
+    <button mat-flat-button color="primary" (click)="createTask()" [disabled]="taskForm.invalid" class="save-btn">
       שמור
     </button>
   </div>
@@ -22,25 +21,30 @@
     <div *ngFor="let task of tasks" class="task-row" [class.completed]="task.status === 'completed'">
 
       <div class="task-main-info">
-        <input type="checkbox" [checked]="task.status === 'completed'" (change)="toggleTaskStatus(task)" 
-               style="width: 20px; height: 20px; cursor: pointer; accent-color: #7b68ee;">
+        <mat-checkbox 
+          color="primary" 
+          [checked]="task.status === 'completed'" 
+          (change)="toggleTaskStatus(task)"
+          class="custom-checkbox">
+        </mat-checkbox>
 
         <div class="task-text">
           <span class="task-name">{{ task.title }}</span>
-          <span class="task-desc" *ngIf="task.description">{{ task.description | shorten:30 }}</span>
+          <span class="task-desc" *ngIf="task.description" [matTooltip]="task.description">
+            {{ task.description | shorten:30 }}
+          </span>
         </div>
       </div>
 
       <div class="task-actions">
-        <button class="comment-btn" (click)="toggleComments(task)" 
-                style="background:none; border:none; cursor:pointer; position:relative; font-size: 1.2rem;">
-          💬
+        <button mat-icon-button class="comment-btn" (click)="toggleComments(task)"
+                [color]="task.comments.length > 0 ? 'primary' : ''">
+          <mat-icon>chat_bubble_outline</mat-icon>
           <span class="badge" *ngIf="task.comments && task.comments.length > 0">{{ task.comments.length }}</span>
         </button>
 
-        <button class="delete-btn" (click)="deleteTask(task)" 
-                style="background:none; border:none; cursor:pointer; font-size: 1.2rem;">
-          🗑️
+        <button mat-icon-button color="warn" class="delete-btn" (click)="deleteTask(task)">
+          <mat-icon>delete_outline</mat-icon>
         </button>
       </div>
 
@@ -50,16 +54,16 @@
             <div class="comment-avatar">{{ (comment.user?.username || 'U').charAt(0) }}</div>
             <div class="comment-content">
               <strong>{{ comment.user?.username || 'חבר צוות' }}</strong>
-              <p style="margin: 5px 0 0;">{{ comment.body || comment.content }}</p>
+              <p>{{ comment.body || comment.content }}</p>
             </div>
           </div>
-          <p *ngIf="task.comments.length === 0" style="color: #a0aec0; text-align: center; margin: 10px;">אין תגובות עדיין.</p>
+          <p *ngIf="task.comments.length === 0" class="no-comments">אין תגובות עדיין.</p>
         </div>
 
         <div class="comment-input-area">
           <input [(ngModel)]="task.newCommentText" placeholder="כתוב תגובה..." (keyup.enter)="addComment(task)">
-          <button (click)="addComment(task)" style="background:none; border:none; cursor:pointer; font-size: 1.2rem;">
-            ✈️
+          <button mat-icon-button color="primary" (click)="addComment(task)">
+            <mat-icon>send</mat-icon>
           </button>
         </div>
       </div>
@@ -68,7 +72,8 @@
   </div>
 
   <div *ngIf="tasks.length === 0" class="empty-state">
-    <p style="font-size: 1.2rem;">הכל מוכן! אין משימות פתוחות.</p>
+    <mat-icon style="font-size: 48px; width: 48px; height: 48px; margin-bottom: 15px; opacity: 0.3;">assignment_turned_in</mat-icon>
+    <p>הכל נקי! אין משימות פתוחות.</p>
   </div>
 
 </div>
