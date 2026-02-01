@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './guards/auth.guard'; // וודאי שזה קיים אצלך, אם לא - תמחקי את השורות עם canActivate
+import { authGuard } from './guards/auth.guard'; 
 
 export const routes: Routes = [
   {
@@ -11,6 +11,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/about/about').then(m => m.AboutComponent)
   },
   {
+    path: 'pricing', // <--- העלינו את זה לפה! עכשיו זה יעבוד
+    loadComponent: () => import('./components/pricing/pricing').then(m => m.PricingComponent)
+  },
+  {
     path: 'login',
     loadComponent: () => import('./components/login/login').then(m => m.LoginComponent)
   },
@@ -18,6 +22,7 @@ export const routes: Routes = [
     path: 'register',
     loadComponent: () => import('./components/register/register').then(m => m.RegisterComponent)
   },
+  // --- אזור אישי (מוגן) ---
   {
     path: 'teams',
     loadComponent: () => import('./components/teams/teams').then(m => m.TeamsComponent),
@@ -33,12 +38,9 @@ export const routes: Routes = [
     loadComponent: () => import('./components/tasks/tasks').then(m => m.TasksComponent),
     canActivate: [authGuard]
   },
+  // --- סוף הרשימה (חייב להיות אחרון!) ---
   {
     path: '**',
     redirectTo: ''
-  },
-  {
-    path: 'pricing',
-    loadComponent: () => import('./components/pricing/pricing').then(m => m.PricingComponent)
-  },
+  }
 ];
