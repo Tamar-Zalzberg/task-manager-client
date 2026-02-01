@@ -1,12 +1,10 @@
 .teams-container {
   padding: 40px;
   max-width: 1200px;
-  margin: 0 auto; /* זה מה שממרכז את הקופסה הראשית באמצע המסך */
+  margin: 0 auto;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: #fcfcfc;
   min-height: 100vh;
-  direction: rtl; /* הוספתי: הופך את כל העמוד לימין-לשמאל */
-  text-align: right; /* הוספתי: מיישר את הטקסט לימין */
 }
 
 h1 {
@@ -20,23 +18,17 @@ h1 {
   margin-bottom: 30px;
 }
 
+/* אזור יצירת צוות - שורה נקייה */
 .create-team-bar {
   display: flex;
   gap: 15px;
   background: white;
   padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   border: 1px solid #eee;
   margin-bottom: 40px;
   align-items: center;
-}
-
-/* תיקון קטן כדי שהכפתור והאינפוט יסתדרו יפה בעברית */
-.create-team-bar form {
-  display: flex;
-  gap: 15px;
-  width: 100%;
 }
 
 .create-team-bar input {
@@ -45,14 +37,12 @@ h1 {
   outline: none;
   font-size: 16px;
   padding: 10px;
-  background: transparent;
 }
 
 .create-btn {
-  background-color: #7b68ee !important;
+  background-color: #7b68ee !important; 
   border-radius: 8px !important;
   height: 40px;
-  padding: 0 25px !important; /* קצת יותר רווח בכפתור */
 }
 
 .teams-grid {
@@ -71,12 +61,11 @@ h1 {
   display: flex;
   flex-direction: column;
   position: relative;
-  cursor: pointer; /* הוספתי: שיראו שזה לחיץ */
 }
 
 .team-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.06);
   border-color: #7b68ee;
 }
 
@@ -111,7 +100,6 @@ h1 {
   background: #f4f5f7;
   padding: 4px 8px;
   border-radius: 4px;
-  white-space: nowrap; /* שלא ישבור שורות */
 }
 
 .description {
@@ -148,7 +136,6 @@ h1 {
 .delete-btn {
   color: #e0e0e0;
 }
-
 .delete-btn:hover {
   color: #ff5555;
   background: #fff0f0;
