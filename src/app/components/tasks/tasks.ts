@@ -21,11 +21,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule, // <--- וודאי שזה מופיע כאן!
     FormsModule,
-    MatIconModule,      // חובה עבור mat-icon
-    MatCheckboxModule,  // חובה עבור mat-checkbox
-    MatButtonModule,    // חובה עבור mat-button
+    MatIconModule,
+    MatCheckboxModule,
+    MatButtonModule,
     MatDialogModule,
     MatTooltipModule,
     ShortenPipe

@@ -24,11 +24,12 @@ export class AuthService {
   }
 
   // זו הפונקציה שחייבת להיות מדויקת כדי שהחץ ייפתח!
-  getUsers(): Observable<any> {
-    // לפעמים השרת מצפה ל-api/users ולא ל-api/auth/users. 
-    // אם זה עדיין מחזיר 404, נסי להוריד את ה-/auth מהכתובת למטה
-    return this.http.get(`${this.apiUrl}/users`, this.getHeaders());
-  }
+getUsers(): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+  // הכתובת הזו חייבת להיות של Render ולא localhost!
+  return this.http.get('https://wolf-server-dzci.onrender.com/api/auth/users', { headers });
+}
 
   // שאר הפונקציות הקיימות שלך...
   register(user: any) {

@@ -53,10 +53,8 @@ export class ProjectsService {
 addTeamMember(teamId: string, userId: string): Observable<any> {
   const token = localStorage.getItem('token');
   const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-  
-  // הכתובת חייבת להיות לשרת ב-Render
   const url = `https://wolf-server-dzci.onrender.com/api/teams/${teamId}/members`;
-  return this.http.post(url, { userId: Number(userId), role: 'member' }, { headers });
+  return this.http.post(url, { userId, role: 'member' }, { headers });
 }
 
   removeTeamMember(teamId: string, userId: string): Observable<any> {
