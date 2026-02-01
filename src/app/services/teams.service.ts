@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TeamsService {
-  private apiUrl = 'http://localhost:3000/api/teams';
 
+private apiUrl = 'https://wolf-server-dzci.onrender.com/api/teams';
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   private getHeaders() {
