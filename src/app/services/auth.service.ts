@@ -24,9 +24,10 @@ export class AuthService {
   }
 
   // --- הפונקציה שחסרה לך וגורמת לחץ לא לעבוד! ---
-  getUsers(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/users`, this.getHeaders());
-  }
+// וודאי שזה נראה בדיוק ככה:
+getUsers(): Observable<any> {
+  return this.http.get(`https://wolf-server-dzci.onrender.com/api/auth/users`, this.getHeaders());
+}
 
   register(user: any) {
     return this.http.post(`${this.apiUrl}/register`, user).pipe(
