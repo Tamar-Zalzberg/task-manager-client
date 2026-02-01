@@ -2,7 +2,13 @@ import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  // --- השינוי כאן: במקום רידיירקט, טוענים את דף הנחיתה ---
+  {
+    path: '',
+    loadComponent: () => import('./components/landing-page/landing-page.component').then(m => m.LandingPageComponent)
+  },
+  // -------------------------------------------------------
+
   {
     path: 'login',
     loadComponent: () => import('./components/login/login').then(m => m.LoginComponent)
@@ -30,5 +36,6 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
 
-  { path: '**', redirectTo: 'login' }
+  // אם מישהו כותב כתובת לא נכונה, נשלח אותו לדף הבית (הנחיתה)
+  { path: '**', redirectTo: '' }
 ];
