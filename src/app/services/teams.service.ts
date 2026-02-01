@@ -53,7 +53,7 @@ private apiUrl = 'https://wolf-server-dzci.onrender.com/api/teams';
   }
 
   getAllUsers(): Observable<any[]> {
-    const url = 'https://wolf-server-dzci.onrender.com';
+    const url = 'https://wolf-server-dzci.onrender.com/api/auth/users';
     return this.http.get<any[]>(url, this.getHeaders());
   }
 }
