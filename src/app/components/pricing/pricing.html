@@ -1,0 +1,70 @@
+<div class="page-container">
+  <nav class="navbar">
+    <div class="brand" routerLink="/">
+      <span class="logo-icon">Wolf</span>Tasks
+    </div>
+    <div class="nav-buttons">
+      <a routerLink="/about" class="btn-text">מי אנחנו</a>
+      <a routerLink="/pricing" class="btn-text active">מחירים</a>
+      <a routerLink="/login" class="btn-text">כניסה</a>
+      <a routerLink="/register" class="btn-primary-soft">הרשמה</a>
+    </div>
+  </nav>
+
+  <main class="content-wrapper">
+    <div class="header-section">
+      <h1>בחרו את המסלול <span class="highlight">המדויק לכם.</span></h1>
+      <p class="subtitle">התחילו בחינם ושדרגו כשתצטרכו עוד כוח.</p>
+    </div>
+
+    <div class="cards-container">
+      
+      <div class="card basic">
+        <h3 class="plan-name">Starter</h3>
+        <div class="price">₪0<span class="period">/חודש</span></div>
+        <p class="desc">ליחידים שרוצים לעשות סדר.</p>
+        <button routerLink="/register" class="btn-plan outline">מתחילים חינם</button>
+        <ul class="features">
+          <li>✅ עד 3 פרויקטים</li>
+          <li>✅ ניהול משימות בסיסי</li>
+          <li>✅ שמירת היסטוריה לשבוע</li>
+        </ul>
+      </div>
+
+      <div class="card pro">
+        <div class="badge">הכי פופולרי 🔥</div>
+        <h3 class="plan-name">Pro Team</h3>
+        <div class="price">₪49<span class="period">/חודש</span></div>
+        <p class="desc">לצוותים שרוצים לרוץ מהר.</p>
+        <button routerLink="/register" class="btn-plan solid">הצטרפות ל-Pro</button>
+        <ul class="features">
+          <li>✅ פרויקטים ללא הגבלה</li>
+          <li>✅ תצוגת גנט (Gantt)</li>
+          <li>✅ ניהול הרשאות צוות</li>
+          <li>✅ תמיכה בעדיפות עליונה</li>
+        </ul>
+      </div>
+
+      <div class="card business">
+        <h3 class="plan-name">Business</h3>
+        <div class="price">₪99<span class="period">/חודש</span></div>
+        <p class="desc">לארגונים שצריכים שליטה.</p>
+        <button routerLink="/register" class="btn-plan outline">צור קשר</button>
+        <ul class="features">
+          <li>✅ הכל מה-Pro ועוד...</li>
+          <li>✅ אבטחה מתקדמת (SSO)</li>
+          <li>✅ מנהל תיק אישי</li>
+          <li>✅ גיבויים אוטומטיים</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>
+      פותח ע"י <strong>תמר זלצברג</strong> &nbsp;|&nbsp; 
+      <a href="mailto:t0527114699@gmail.com">t0527114699@gmail.com</a>
+    </p>
+  </footer>
+</div>

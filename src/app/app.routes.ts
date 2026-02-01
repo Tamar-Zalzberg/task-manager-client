@@ -36,5 +36,9 @@ export const routes: Routes = [
   {
     path: '**',
     redirectTo: ''
-  }
+  },
+  {
+    path: 'pricing',
+    loadComponent: () => import('./components/pricing/pricing').then(m => m.PricingComponent)
+  },
 ];

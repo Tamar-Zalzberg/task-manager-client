@@ -1,0 +1,156 @@
+/* הגדרות בסיס - ללא גלילה (Fit to Screen) */
+:host {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* מונע גלילה ראשית */
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #fcfcfd;
+  color: #2b2d42;
+  direction: rtl;
+}
+
+.page-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar - נעול ולא מתכווץ */
+.navbar {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: white;
+  border-bottom: 1px solid #edf2f7;
+  flex-shrink: 0; 
+}
+
+.brand { font-size: 1.6rem; font-weight: 800; color: #2d3748; cursor: pointer; text-decoration: none; }
+.logo-icon { color: #7b68ee; }
+.nav-buttons { display: flex; gap: 20px; align-items: center; }
+
+.btn-text { text-decoration: none; color: #718096; font-weight: 600; font-size: 1rem; transition: 0.2s; }
+.btn-text:hover { color: #2d3748; }
+.active { color: #7b68ee; } /* הדגשה בטפריט */
+
+.btn-primary-soft { text-decoration: none; background: #f3f0ff; color: #7b68ee; padding: 10px 20px; border-radius: 8px; font-weight: 700; transition: 0.2s; }
+.btn-primary-soft:hover { background: #e9e6ff; }
+
+/* Main Content */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* ממקם הכל באמצע הגובה */
+  gap: 30px;
+  padding: 20px;
+  overflow-y: auto; /* מאפשר גלילה רק אם המסך ממש נמוך */
+}
+
+.header-section { text-align: center; }
+h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 10px; color: #1a202c; }
+.highlight { color: #7b68ee; }
+.subtitle { font-size: 1.1rem; color: #718096; }
+
+/* Cards Layout */
+.cards-container {
+  display: flex;
+  gap: 25px;
+  align-items: center; /* מיישר אותם באמצע */
+}
+
+/* Base Card Style */
+.card {
+  background: white;
+  border: 1px solid #edf2f7;
+  border-radius: 20px;
+  padding: 30px;
+  width: 280px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -5px rgba(0,0,0,0.1);
+}
+
+/* עיצוב מיוחד לכרטיס האמצעי (Pro) */
+.pro {
+  border: 2px solid #7b68ee;
+  transform: scale(1.05); /* מגדיל אותו קצת */
+  box-shadow: 0 20px 40px -10px rgba(123, 104, 238, 0.2);
+  z-index: 2;
+}
+.pro:hover { transform: scale(1.08); }
+
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #7b68ee;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Typography inside cards */
+.plan-name { font-size: 1.2rem; color: #2d3748; margin-bottom: 10px; font-weight: 700; }
+.price { font-size: 2.5rem; font-weight: 800; color: #1a202c; margin-bottom: 5px; }
+.period { font-size: 1rem; color: #a0aec0; font-weight: 500; }
+.desc { color: #718096; font-size: 0.9rem; margin-bottom: 25px; }
+
+/* Buttons inside cards */
+.btn-plan {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 25px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+
+.outline { background: #f7fafc; color: #4a5568; border: 1px solid transparent; }
+.outline:hover { background: #edf2f7; border-color: #cbd5e1; }
+
+.solid { background: #7b68ee; color: white; box-shadow: 0 4px 10px rgba(123, 104, 238, 0.3); }
+.solid:hover { background: #6c5ce7; }
+
+/* Features List */
+.features { list-style: none; padding: 0; text-align: right; }
+.features li { margin-bottom: 12px; font-size: 0.9rem; color: #4a5568; }
+
+/* Footer - נעול */
+.footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  color: #718096;
+  background: white;
+  border-top: 1px solid #edf2f7;
+  flex-shrink: 0;
+}
+.footer a { color: #7b68ee; text-decoration: none; font-weight: 600; }
+.footer a:hover { text-decoration: underline; }
+
+/* Responsive - במובייל הכל מסתדר בטור עם גלילה */
+@media (max-width: 900px) {
+  :host { overflow: auto; height: auto; }
+  .content-wrapper { padding: 40px 20px; justify-content: flex-start; }
+  .cards-container { flex-direction: column; gap: 40px; }
+  .pro { transform: none; }
+  .pro:hover { transform: translateY(-5px); }
+}
