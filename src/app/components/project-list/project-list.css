@@ -198,3 +198,35 @@ h1 {
   padding: 60px;
   font-size: 1.1rem;
 }
+/* עיצוב המודאל הקיים שיהיה נקי ולבן */
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__content {
+  font-family: 'Segoe UI', sans-serif !important;
+  color: #2d3748 !important;
+}
+
+/* הפיכת שדה הבחירה (החץ) לנקי יותר */
+::ng-deep .mat-mdc-form-field {
+  width: 100% !important;
+  margin-top: 15px !important;
+}
+
+::ng-deep .mat-mdc-select-trigger {
+  color: #4a5568 !important;
+  font-weight: 500 !important;
+}
+
+/* עיצוב רשימת חברי הצוות למטה */
+.member-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+/* כפתור הוספה (הזמן) */
+.btn-invite {
+  background-color: #7b68ee !important;
+  color: white !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
