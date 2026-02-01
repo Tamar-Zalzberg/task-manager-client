@@ -5,11 +5,9 @@ import { RouterLink } from '@angular/router';   // <--- זה הכי חשוב! ב
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-
-  imports: [CommonModule, RouterLink], 
-  templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.css' 
+  imports: [CommonModule, RouterLink],
+  templateUrl: './landing-page.html',
+  styleUrl: './landing-page.css' 
 })
 export class LandingPageComponent {
-
 }

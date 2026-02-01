@@ -5,8 +5,7 @@ export const routes: Routes = [
   // --- השינוי כאן: במקום רידיירקט, טוענים את דף הנחיתה ---
   {
     path: '',
-    loadComponent: () => import('./components/landing-page/landing-page.component').then(m => m.LandingPageComponent)
-  },
+loadComponent: () => import('./components/landing-page/landing-page').then(m => m.LandingPageComponent)  },
   // -------------------------------------------------------
 
   {
