@@ -4,7 +4,7 @@
   width: 100vw;
   overflow: hidden;
   font-family: 'Segoe UI', system-ui, sans-serif;
-  background-color: #fcfcfd; /* רקע כללי בהיר מאוד */
+  background-color: #fcfcfd;
   color: #2b2d42;
   direction: rtl;
 }
@@ -38,33 +38,33 @@
 .btn-primary-soft { text-decoration: none; background: #f3f0ff; color: #7b68ee; padding: 10px 20px; border-radius: 8px; font-weight: 700; transition: 0.2s; }
 .btn-primary-soft:hover { background: #e9e6ff; }
 
-/* Main Content - Center the card */
+/* Main Content */
 .content-center {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-image: radial-gradient(#e0e7ff 1px, transparent 1px); /* נקודות עדינות ברקע */
+  background-image: radial-gradient(#e0e7ff 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
-/* Auth Card Design */
+/* Auth Card */
 .auth-card {
   background: white;
   width: 100%;
   max-width: 420px;
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08); /* צל רך ומודרני */
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
   border: 1px solid #f1f5f9;
 }
 
 .card-header { text-align: center; margin-bottom: 30px; }
-h2 { margin: 0 0 10px 0; font-size: 1.8rem; color: #1a202c; }
+h2 { margin: 0 0 10px 0; font-size: 1.8rem; color: #1a202c; font-weight: 700; }
 .subtitle { color: #718096; font-size: 0.95rem; margin: 0; }
 
-/* Form Styles */
+/* Forms */
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: #4a5568; }
 
@@ -73,10 +73,10 @@ h2 { margin: 0 0 10px 0; font-size: 1.8rem; color: #1a202c; }
   padding: 12px 15px;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
-  background: #f8fafc; /* סגנון ClickUp - שדה אפרפר */
+  background: #f8fafc;
   font-size: 1rem;
   transition: all 0.2s;
-  box-sizing: border-box; /* חשוב מאוד כדי שהפדינג לא יגדיל את השדה */
+  box-sizing: border-box;
 }
 
 .form-group input:focus {
@@ -113,12 +113,11 @@ h2 { margin: 0 0 10px 0; font-size: 1.8rem; color: #1a202c; }
   border: 1px solid #feb2b2;
 }
 
-/* Bottom Link */
 .card-footer { text-align: center; margin-top: 25px; font-size: 0.9rem; color: #718096; }
 .card-footer a { color: #7b68ee; text-decoration: none; font-weight: 600; }
 .card-footer a:hover { text-decoration: underline; }
 
-/* Footer - נעול */
+/* Footer */
 .footer {
   text-align: center;
   padding: 15px;
@@ -133,5 +132,5 @@ h2 { margin: 0 0 10px 0; font-size: 1.8rem; color: #1a202c; }
 @media (max-width: 600px) {
   .auth-card { padding: 30px 20px; box-shadow: none; background: transparent; border: none; }
   .navbar { padding: 0 20px; }
-  .nav-buttons { display: none; } /* במובייל נסתיר תפריט כרגע לפשטות */
+  .nav-buttons { display: none; }
 }

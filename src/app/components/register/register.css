@@ -1,64 +1,136 @@
-/* שיניתי את השם כאן כדי שיתאים ל-HTML */
-.register-container { 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f7f8fa 0%, #eef2f6 100%);
-  direction: rtl; /* הוספתי שיהיה מימין לשמאל מסודר */
+:host {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #fcfcfd;
+  color: #2b2d42;
+  direction: rtl;
 }
 
-mat-card {
+.page-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: white;
+  border-bottom: 1px solid #edf2f7;
+  flex-shrink: 0;
+}
+
+.brand { font-size: 1.6rem; font-weight: 800; color: #2d3748; cursor: pointer; text-decoration: none; }
+.logo-icon { color: #7b68ee; }
+.nav-buttons { display: flex; gap: 20px; align-items: center; }
+
+.btn-text { text-decoration: none; color: #718096; font-weight: 600; font-size: 1rem; transition: 0.2s; }
+.btn-text:hover { color: #2d3748; }
+.active-btn { background: #e9e6ff; color: #7b68ee; }
+
+.btn-primary-soft { text-decoration: none; background: #f3f0ff; color: #7b68ee; padding: 10px 20px; border-radius: 8px; font-weight: 700; transition: 0.2s; }
+.btn-primary-soft:hover { background: #e9e6ff; }
+
+/* Main Content */
+.content-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: radial-gradient(#e0e7ff 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Auth Card */
+.auth-card {
+  background: white;
   width: 100%;
   max-width: 420px;
   padding: 40px;
-  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+  border: 1px solid #f1f5f9;
 }
 
-mat-card-header {
-  justify-content: center;
-  margin-bottom: 20px;
+.card-header { text-align: center; margin-bottom: 30px; }
+h2 { margin: 0 0 10px 0; font-size: 1.8rem; color: #1a202c; font-weight: 700; }
+.subtitle { color: #718096; font-size: 0.95rem; margin: 0; }
+
+/* Forms */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: #4a5568; }
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc; /* רקע אפרפר לשדות כמו ב-ClickUp */
+  font-size: 1rem;
+  transition: all 0.2s;
+  box-sizing: border-box;
 }
 
-mat-card-title {
-  font-size: 24px;
+.form-group input:focus {
+  outline: none;
+  background: white;
+  border-color: #7b68ee;
+  box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.1);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: #7b68ee;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
   font-weight: 700;
-  color: #292d34;
-}
-
-.full-width {
-  width: 100%;
-  margin-bottom: 10px;
-  text-align: right;
-}
-
-button[type="submit"] {
-  width: 100%;
-  height: 48px;
-  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
   margin-top: 10px;
-  background-color: #7b68ee !important;
 }
+.btn-submit:hover { background: #6c5ce7; box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3); }
 
+/* Error Message */
 .error-msg {
-  background-color: #fff0f0;
-  color: #d32f2f;
+  background: #fff5f5;
+  color: #c53030;
   padding: 10px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 0.9rem;
   margin-bottom: 15px;
-  border: 1px solid #ffcdcd;
+  text-align: center;
+  border: 1px solid #feb2b2;
 }
 
-a {
-  color: #7b68ee;
-  text-decoration: none;
-  font-size: 14px;
-  margin-top: 20px;
-  display: block;
-  text-align: center; /* וידוא שהקישור באמצע */
-}
+.card-footer { text-align: center; margin-top: 25px; font-size: 0.9rem; color: #718096; }
+.card-footer a { color: #7b68ee; text-decoration: none; font-weight: 600; }
+.card-footer a:hover { text-decoration: underline; }
 
-a:hover {
-  text-decoration: underline;
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  color: #718096;
+  background: white;
+  border-top: 1px solid #edf2f7;
+  flex-shrink: 0;
+}
+.footer a { color: #7b68ee; text-decoration: none; font-weight: 600; }
+
+@media (max-width: 600px) {
+  .auth-card { padding: 30px 20px; box-shadow: none; background: transparent; border: none; }
+  .navbar { padding: 0 20px; }
+  .nav-buttons { display: none; }
 }

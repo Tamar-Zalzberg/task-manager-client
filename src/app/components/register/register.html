@@ -1,44 +1,56 @@
-<div class="register-container">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>הרשמה למערכת</mat-card-title>
-    </mat-card-header>
+<div class="page-container">
+  <nav class="navbar">
+    <div class="brand" routerLink="/">
+      <span class="logo-icon">Wolf</span>Tasks
+    </div>
+    <div class="nav-buttons">
+      <a routerLink="/about" class="btn-text">מי אנחנו</a>
+      <a routerLink="/pricing" class="btn-text">מחירים</a>
+      <a routerLink="/login" class="btn-text">כניסה</a>
+      <a routerLink="/register" class="btn-primary-soft active-btn">הרשמה</a>
+    </div>
+  </nav>
 
-    <mat-card-content>
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <main class="content-center">
+    <div class="auth-card">
+      <div class="card-header">
+        <h2>יצירת חשבון חדש</h2>
+        <p class="subtitle">מלאו את הפרטים כדי להתחיל לנהל משימות.</p>
+      </div>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>שם משתמש</mat-label>
-          <input matInput formControlName="username" type="text">
-        </mat-form-field>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>שם מלא</label>
+          <input type="text" [(ngModel)]="name" name="name" placeholder="לדוגמה: ישראל ישראלי" required>
+        </div>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>אימייל</mat-label>
-          <input matInput formControlName="email" type="email">
-          <mat-error *ngIf="registerForm.get('email')?.hasError('email')">
-            נא להזין כתובת אימייל תקינה
-          </mat-error>
-        </mat-form-field>
+        <div class="form-group">
+          <label>כתובת אימייל</label>
+          <input type="email" [(ngModel)]="email" name="email" placeholder="name@example.com" required>
+        </div>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>סיסמה</mat-label>
-          <input matInput formControlName="password" type="password">
-        </mat-form-field>
+        <div class="form-group">
+          <label>סיסמה</label>
+          <input type="password" [(ngModel)]="password" name="password" placeholder="מינימום 6 תווים" required>
+        </div>
 
-        <div class="error-msg" *ngIf="errorMessage">
+        <div *ngIf="errorMessage" class="error-msg">
           {{ errorMessage }}
         </div>
 
-        <div class="actions">
-          <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">
-            הירשם
-          </button>
-        </div>
+        <button type="submit" class="btn-submit">הרשמה למערכת</button>
       </form>
-    </mat-card-content>
 
-    <mat-card-actions>
-      <a routerLink="/login">כבר רשום? התחבר כאן</a>
-    </mat-card-actions>
-  </mat-card>
+      <div class="card-footer">
+        <p>יש לך כבר חשבון? <a routerLink="/login">התחברות</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>
+      פותח ע"י <strong>תמר זלצברג</strong> &nbsp;|&nbsp; 
+      <a href="mailto:t0527114699@gmail.com">t0527114699@gmail.com</a>
+    </p>
+  </footer>
 </div>
