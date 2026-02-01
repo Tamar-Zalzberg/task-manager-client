@@ -7,13 +7,8 @@
     </div>
 
     <div class="header-actions">
-      <button class="btn-outline" (click)="goBack()">
-        ← חזרה לצוותים
-      </button>
-
-      <button class="btn-secondary" (click)="manageTeamMembers()">
-        ניהול חברים
-      </button>
+      <button class="btn-outline" (click)="goBack()">← חזרה לצוותים</button>
+      <button class="btn-secondary" (click)="manageTeamMembers()">ניהול חברים</button>
     </div>
   </div>
 
@@ -30,7 +25,6 @@
   </div>
 
   <div class="projects-grid" *ngIf="projects.length > 0">
-
     <div *ngFor="let proj of projects" class="project-card" (click)="openProject(proj._id || proj.id)">
       <div class="card-content">
         <h3 class="card-title">{{ proj.name }}</h3>
@@ -38,15 +32,10 @@
       </div>
 
       <div class="card-actions">
-        <button class="btn-action" (click)="$event.stopPropagation(); editProject(proj)" title="ערוך שם">
-          עריכה
-        </button>
-        <button class="btn-action delete" (click)="$event.stopPropagation(); deleteProject(proj)" title="מחק">
-          מחיקה
-        </button>
+        <button class="btn-action" (click)="$event.stopPropagation(); editProject(proj)">עריכה</button>
+        <button class="btn-action delete" (click)="$event.stopPropagation(); deleteProject(proj)">מחיקה</button>
       </div>
     </div>
-
   </div>
 
   <div *ngIf="projects.length === 0" class="empty-state">
