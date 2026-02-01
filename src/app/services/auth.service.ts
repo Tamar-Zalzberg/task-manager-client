@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:3000/api/auth';
+  private apiUrl = 'https://wolf-server-dzci.onrender.com/api/auth';
   private tokenKey = 'token';
 
   constructor(private http: HttpClient) { }

@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TasksService {
-  private apiUrlTasks = 'http://localhost:3000/api/tasks';
-  private apiUrlComments = 'http://localhost:3000/api/comments';
+  private apiUrlTasks = 'https://wolf-server-dzci.onrender.com/api/tasks';
+  private apiUrlComments = 'https://wolf-server-dzci.onrender.com/api/comments';
 
   constructor(private http: HttpClient) { }
 
