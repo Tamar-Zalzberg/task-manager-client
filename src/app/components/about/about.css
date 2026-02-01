@@ -1,0 +1,212 @@
+/* הגדרות בסיס - ללא גלילה במסכים רגילים */
+:host {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #fcfcfd;
+  color: #2b2d42;
+  direction: rtl;
+}
+
+.page-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: white;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #2d3748;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo-icon { color: #7b68ee; }
+
+.nav-buttons { display: flex; gap: 15px; align-items: center; }
+
+.btn-text {
+  text-decoration: none;
+  color: #718096;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.btn-text:hover { color: #2d3748; }
+
+.btn-primary-soft {
+  text-decoration: none;
+  background: #f3f0ff;
+  color: #7b68ee;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+.btn-primary-soft:hover { background: #e9e6ff; }
+
+/* Main Grid Layout */
+.content-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* חלוקה שווה לחצי חצי */
+  gap: 60px;
+  padding: 40px 8%;
+  align-items: center;
+}
+
+/* Right Side - About Text */
+.text-wrapper { max-width: 500px; }
+
+.badge {
+  background: #e0e7ff;
+  color: #4338ca;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #1a202c;
+}
+
+.highlight {
+  color: #7b68ee;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #718096;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* Stats */
+.stats-row {
+  display: flex;
+  gap: 40px;
+  border-top: 1px solid #edf2f7;
+  padding-top: 30px;
+}
+
+.stat-item { display: flex; flex-direction: column; }
+.number { font-size: 2rem; font-weight: 800; color: #2d3748; }
+.label { font-size: 0.9rem; color: #a0aec0; }
+
+/* Left Side - Reviews */
+.reviews-section {
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid #edf2f7;
+  height: 100%;
+  max-height: 500px; /* שלא יתפוס יותר מדי גובה */
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews-title {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #4a5568;
+}
+
+.cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto; /* אם יש הרבה המלצות, רק האזור הזה נגלל */
+  padding-left: 10px; /* מקום לפס גלילה */
+}
+
+/* Review Card Design */
+.review-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  transition: transform 0.2s;
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-color: #7b68ee;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.c1 { background: #fc8181; }
+.c2 { background: #63b3ed; }
+.c3 { background: #f6ad55; }
+
+.user-info { display: flex; flex-direction: column; }
+.name { font-weight: 700; font-size: 0.95rem; color: #2d3748; }
+.role { font-size: 0.8rem; color: #a0aec0; }
+
+.review-text {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.stars { font-size: 0.8rem; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  color: #718096;
+  background: white;
+  border-top: 1px solid #edf2f7;
+}
+.footer a { color: #7b68ee; text-decoration: none; font-weight: 600; }
+.footer a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  :host { overflow: auto; } /* במובייל כן נאפשר גלילה */
+  .content-grid { grid-template-columns: 1fr; gap: 40px; padding: 20px; }
+  .reviews-section { max-height: none; }
+  h1 { font-size: 2.5rem; }
+}
