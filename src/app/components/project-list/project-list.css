@@ -1,136 +1,200 @@
-.projects-container {
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #fcfcfd; /* רקע כללי בהיר */
+  color: #2b2d42;
   direction: rtl;
 }
 
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Header */
 .header-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-start; /* או center אם תרצי */
   margin-bottom: 30px;
 }
 
 h1 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #292d34;
-  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin: 0 0 5px 0;
 }
 
 .subtitle {
-  color: #7f7f7f;
-  margin-top: 5px;
+  color: #718096;
+  font-size: 1.1rem;
+  margin: 0;
 }
 
 .header-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
-/* שורת יצירה */
+/* Buttons Styles */
+.btn-outline {
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #4a5568;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-outline:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.btn-secondary {
+  background: #e0e7ff;
+  color: #4338ca;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-secondary:hover {
+  background: #c7d2fe;
+}
+
+.btn-primary {
+  background: #7b68ee;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #6c5ce7;
+}
+.btn-primary:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+/* Create Bar */
 .create-bar {
   background: white;
-  padding: 10px 20px;
+  border: 1px solid #edf2f7;
   border-radius: 12px;
+  padding: 15px 20px;
   display: flex;
   align-items: center;
   gap: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
   margin-bottom: 40px;
-  border: 1px solid #eaebef;
 }
 
-.create-bar input {
+.input-clean {
   flex: 1;
-  border: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  background: #f8fafc;
   outline: none;
-  font-size: 16px;
-  padding: 10px;
+  transition: 0.2s;
+}
+.input-clean:focus {
+  background: white;
+  border-color: #7b68ee;
 }
 
-/* גריד פרויקטים */
+/* Projects Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 25px;
 }
 
 .project-card {
   background: white;
-  border-radius: 10px;
-  overflow: hidden;
   border: 1px solid #eaebef;
+  border-radius: 12px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   position: relative;
+  height: 160px; /* גובה אחיד */
 }
 
 .project-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
   border-color: #7b68ee;
 }
 
-.card-left-border {
+/* פס צבעוני עליון */
+.project-card::before {
+  content: '';
   position: absolute;
-  right: 0;
   top: 0;
-  bottom: 0;
-  width: 4px;
+  left: 20px;
+  right: 20px;
+  height: 4px;
   background: #7b68ee;
+  border-radius: 0 0 4px 4px;
+  opacity: 0.6;
 }
 
 .card-content {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
+  flex: 1;
 }
 
-.card-icon {
-  background: #f0f7ff;
-  color: #7b68ee;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 15px 0 5px 0;
 }
 
-.card-text h3 {
+.card-desc {
+  font-size: 0.9rem;
+  color: #a0aec0;
   margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.card-text p {
-  margin: 5px 0 0;
-  font-size: 12px;
-  color: #888;
 }
 
 .card-actions {
-  border-top: 1px solid #f5f5f5;
-  padding: 8px 15px;
   display: flex;
   justify-content: flex-end;
-  background: #fafafa;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #f7fafc;
 }
 
+.btn-action {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  color: #718096;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-action:hover { color: #2d3748; }
+
+.btn-action.delete:hover { color: #ef4444; }
+
+/* Empty State */
 .empty-state {
   text-align: center;
-  color: #bbb;
-  margin-top: 50px;
-}
-
-.empty-state mat-icon {
-  font-size: 60px;
-  width: 60px;
-  height: 60px;
-  opacity: 0.5;
+  color: #a0aec0;
+  padding: 60px;
+  font-size: 1.1rem;
 }
