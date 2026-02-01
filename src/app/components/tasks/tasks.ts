@@ -23,13 +23,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatDividerModule,
+    MatIconModule,      // חובה עבור mat-icon
+    MatCheckboxModule,  // חובה עבור mat-checkbox
+    MatButtonModule,    // חובה עבור mat-button
     MatDialogModule,
     MatTooltipModule,
     ShortenPipe
