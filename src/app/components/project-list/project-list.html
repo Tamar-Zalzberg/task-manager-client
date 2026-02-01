@@ -1,5 +1,4 @@
 <div class="projects-container">
-
   <div class="header-row">
     <div>
       <h1 *ngIf="teamDetails">{{ teamDetails.name }}</h1>
@@ -8,7 +7,9 @@
 
     <div class="header-actions">
       <button class="btn-outline" (click)="goBack()">← חזרה לצוותים</button>
-      <button class="btn-secondary" (click)="manageTeamMembers()">ניהול חברים</button>
+      <button class="btn-secondary" (click)="manageTeamMembers()">
+        ניהול חברים
+      </button>
     </div>
   </div>
 
@@ -18,7 +19,6 @@
       placeholder="שם הפרויקט החדש..." 
       (keyup.enter)="createProject()"
       class="input-clean">
-    
     <button class="btn-primary" (click)="createProject()" [disabled]="!newProjectName">
       + צור פרויקט
     </button>
@@ -30,7 +30,6 @@
         <h3 class="card-title">{{ proj.name }}</h3>
         <p class="card-desc">לחץ לכניסה למשימות</p>
       </div>
-
       <div class="card-actions">
         <button class="btn-action" (click)="$event.stopPropagation(); editProject(proj)">עריכה</button>
         <button class="btn-action delete" (click)="$event.stopPropagation(); deleteProject(proj)">מחיקה</button>
@@ -41,5 +40,4 @@
   <div *ngIf="projects.length === 0" class="empty-state">
     <p>אין פרויקטים בצוות זה עדיין.</p>
   </div>
-
 </div>

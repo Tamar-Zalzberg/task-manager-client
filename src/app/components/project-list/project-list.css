@@ -1,9 +1,9 @@
+/* עיצוב כללי לעמוד */
 :host {
   display: block;
   min-height: 100vh;
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  background-color: #fcfcfd; /* רקע כללי בהיר */
-  color: #2b2d42;
+  background-color: #fcfcfd;
+  font-family: 'Segoe UI', sans-serif;
   direction: rtl;
 }
 
@@ -13,90 +13,19 @@
   padding: 40px 20px;
 }
 
-/* Header */
-.header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start; /* או center אם תרצי */
-  margin-bottom: 30px;
-}
+/* כפתורים בסטייל ClickUp */
+.btn-outline { background: white; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 8px; cursor: pointer; }
+.btn-secondary { background: #f0f4ff; color: #5c59f2; border: 1px solid #dce4ff; padding: 8px 16px; border-radius: 8px; cursor: pointer; }
+.btn-primary { background: #7b68ee; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
 
-h1 {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #2d3748;
-  margin: 0 0 5px 0;
-}
-
-.subtitle {
-  color: #718096;
-  font-size: 1.1rem;
-  margin: 0;
-}
-
-.header-actions {
-  display: flex;
-  gap: 12px;
-}
-
-/* Buttons Styles */
-.btn-outline {
-  background: white;
-  border: 1px solid #e2e8f0;
-  color: #4a5568;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.btn-outline:hover {
-  border-color: #cbd5e1;
-  background: #f8fafc;
-}
-
-.btn-secondary {
-  background: #e0e7ff;
-  color: #4338ca;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.btn-secondary:hover {
-  background: #c7d2fe;
-}
-
-.btn-primary {
-  background: #7b68ee;
-  color: white;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.btn-primary:hover:not(:disabled) {
-  background: #6c5ce7;
-}
-.btn-primary:disabled {
-  background: #cbd5e1;
-  cursor: not-allowed;
-}
-
-/* Create Bar */
+/* עיצוב שורת היצירה */
 .create-bar {
   background: white;
   border: 1px solid #edf2f7;
   border-radius: 12px;
   padding: 15px 20px;
   display: flex;
-  align-items: center;
   gap: 15px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
   margin-bottom: 40px;
 }
 
@@ -104,97 +33,25 @@ h1 {
   flex: 1;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-  padding: 10px 15px;
-  font-size: 1rem;
+  padding: 10px;
   background: #f8fafc;
   outline: none;
-  transition: 0.2s;
-}
-.input-clean:focus {
-  background: white;
-  border-color: #7b68ee;
 }
 
-/* Projects Grid */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
+/* עיצוב המודאל (הפופ-אפ) הקיים שלך */
+::ng-deep .mat-mdc-dialog-container {
+  border-radius: 16px !important;
 }
 
-.project-card {
-  background: white;
-  border: 1px solid #eaebef;
-  border-radius: 12px;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
-  height: 160px; /* גובה אחיד */
+/* תיקון ה"חץ" בתוך הפופ-אפ שיוכל לגלול */
+::ng-deep .mat-mdc-select-trigger {
+  color: #5c59f2 !important;
+  font-weight: 600 !important;
 }
 
-.project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-  border-color: #7b68ee;
-}
-
-/* פס צבעוני עליון */
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 20px;
-  right: 20px;
-  height: 4px;
-  background: #7b68ee;
-  border-radius: 0 0 4px 4px;
-  opacity: 0.6;
-}
-
-.card-content {
-  flex: 1;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #2d3748;
-  margin: 15px 0 5px 0;
-}
-
-.card-desc {
-  font-size: 0.9rem;
-  color: #a0aec0;
-  margin: 0;
-}
-
-.card-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  padding-top: 15px;
-  border-top: 1px solid #f7fafc;
-}
-
-.btn-action {
-  background: none;
-  border: none;
-  font-size: 0.85rem;
-  color: #718096;
-  cursor: pointer;
-  font-weight: 600;
-}
-.btn-action:hover { color: #2d3748; }
-
-.btn-action.delete:hover { color: #ef4444; }
-
-/* Empty State */
-.empty-state {
-  text-align: center;
-  color: #a0aec0;
-  padding: 60px;
-  font-size: 1.1rem;
+/* עיצוב רשימת הבחירה עצמה */
+::ng-deep .mat-mdc-select-panel {
+  background: white !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
 }
