@@ -3,101 +3,58 @@
   min-height: 100vh;
   background-color: #fcfcfd;
   font-family: 'Segoe UI', system-ui, sans-serif;
-  direction: rtl; /* יישור לימין */
+  direction: rtl; /* יישור כללי לימין */
+  text-align: right;
 }
 
 .teams-container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 50px 20px;
+  padding: 40px 20px;
 }
 
+/* כותרת */
 .header-section {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  text-align: right;
 }
 
-h1 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #2d3748;
+/* כרטיס הצוות */
+.team-card {
+  background: white;
+  border: 1px solid #eaebef;
+  border-radius: 12px;
+  padding: 24px;
+  transition: 0.3s;
+  text-align: right; /* מוודא שהטקסט בתוך הכרטיס בימין */
+}
+
+/* יישור כפתור "הוסף חבר" והמחיקה */
+.card-footer {
+  display: flex;
+  justify-content: space-between; /* שומר על הריווח בין הכפתורים */
+  align-items: center;
+  margin-top: 20px;
+  direction: rtl;
+}
+
+.add-member-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #7b68ee;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 /* שורת יצירת צוות */
 .create-team-bar {
-  background: white;
-  border: 1px solid #edf2f7;
-  border-radius: 12px;
-  padding: 15px 20px;
   display: flex;
+  flex-direction: row-reverse; /* הופך את סדר האינפוט והכפתור לימין */
   gap: 15px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-}
-
-.input-clean {
-  flex: 1;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 12px;
-  outline: none;
-  background: #f8fafc;
-}
-
-.btn-primary {
-  background: #7b68ee;
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-/* גריד הצוותים */
-.teams-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.team-card {
   background: white;
-  border: 1px solid #eaebef;
-  border-radius: 14px;
-  padding: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 120px;
-}
-
-.team-card:hover {
-  border-color: #7b68ee;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  transform: translateY(-3px);
-}
-
-.team-name {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #1a202c;
-}
-
-.team-actions {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 15px;
-}
-
-.btn-delete {
-  background: none;
-  border: none;
-  color: #cbd5e1;
-  cursor: pointer;
-}
-
-.btn-delete:hover {
-  color: #ef4444;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #edf2f7;
+  margin-bottom: 40px;
 }
