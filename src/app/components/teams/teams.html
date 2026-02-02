@@ -2,35 +2,34 @@
   
   <div class="header-section">
     <h1>הצוותים שלי</h1>
+    <p style="color: #718096;">נהל את מרחבי העבודה והפרויקטים שלך</p>
   </div>
 
   <div class="create-team-bar">
     <input 
       class="input-clean" 
       [(ngModel)]="newTeamName" 
-      placeholder="שם הצוות החדש..."
+      placeholder="...שם הצוות החדש שלך"
       (keyup.enter)="createTeam()">
-    <button class="btn-primary" (click)="createTeam()" [disabled]="!newTeamName">
-      + צור צוות
+    <button mat-flat-button color="primary" (click)="createTeam()" [disabled]="!newTeamName" style="border-radius: 8px;">
+      צור צוות
     </button>
   </div>
 
   <div class="teams-grid" *ngIf="teams && teams.length > 0">
     <div *ngFor="let team of teams" class="team-card" (click)="goToTeam(team._id || team.id)">
-      <div class="team-info">
-        <span class="team-name">{{ team.name }}</span>
-      </div>
+      <div class="team-name">{{ team.name }}</div>
+      <div class="team-desc">מרחב עבודה לניהול משימות ופרויקטים.</div>
       
-      <div class="team-actions">
-        <button class="btn-delete" (click)="$event.stopPropagation(); deleteTeam(team)">
+      <div class="card-actions">
+        <div class="add-member-btn">
+          <mat-icon style="font-size: 18px; width: 18px; height: 18px;">person_add</mat-icon>
+          <span>הוסף חבר</span>
+        </div>
+        <div class="delete-btn" (click)="$event.stopPropagation(); deleteTeam(team)">
           <mat-icon>delete_outline</mat-icon>
-        </button>
+        </div>
       </div>
     </div>
   </div>
-
-  <div *ngIf="!teams || teams.length === 0" style="text-align: center; padding: 50px; color: #a0aec0;">
-    אין צוותים עדיין.
-  </div>
-
 </div>

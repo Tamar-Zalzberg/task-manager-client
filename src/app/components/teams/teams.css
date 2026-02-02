@@ -1,10 +1,10 @@
+/* יישור גלובלי של כל הקומפוננטה */
 :host {
   display: block;
-  min-height: 100vh;
+  direction: rtl !important;
+  text-align: right !important;
   background-color: #fcfcfd;
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  direction: rtl; /* יישור כללי לימין */
-  text-align: right;
+  min-height: 100vh;
 }
 
 .teams-container {
@@ -13,48 +13,101 @@
   padding: 40px 20px;
 }
 
-/* כותרת */
+/* כותרת ראשית */
 .header-section {
   margin-bottom: 30px;
-  text-align: right;
+  text-align: right !important;
 }
 
-/* כרטיס הצוות */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin: 0;
+}
+
+/* שורת יצירת צוות - יישור לימין */
+.create-team-bar {
+  background: white;
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row; /* שומר על סדר מימין לשמאל בגלל ה-rtl */
+  gap: 15px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.input-clean {
+  flex: 1;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  text-align: right !important;
+}
+
+/* כרטיסי הצוות - הפעם עם יישור פנימי מלא */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
 .team-card {
   background: white;
   border: 1px solid #eaebef;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* מצמיד הכל לימין בגלל ה-RTL */
+  text-align: right !important;
   transition: 0.3s;
-  text-align: right; /* מוודא שהטקסט בתוך הכרטיס בימין */
 }
 
-/* יישור כפתור "הוסף חבר" והמחיקה */
-.card-footer {
+.team-card:hover {
+  border-color: #7b68ee;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.team-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a202c;
+  width: 100%;
+}
+
+.team-desc {
+  color: #a0aec0;
+  font-size: 0.9rem;
+  margin: 10px 0 20px 0;
+  width: 100%;
+}
+
+/* הכפתורים בתחתית הכרטיס */
+.card-actions {
   display: flex;
-  justify-content: space-between; /* שומר על הריווח בין הכפתורים */
-  align-items: center;
-  margin-top: 20px;
-  direction: rtl;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: auto;
+  border-top: 1px solid #f7fafc;
+  padding-top: 15px;
 }
 
 .add-member-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   color: #7b68ee;
   font-weight: 600;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-/* שורת יצירת צוות */
-.create-team-bar {
-  display: flex;
-  flex-direction: row-reverse; /* הופך את סדר האינפוט והכפתור לימין */
-  gap: 15px;
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid #edf2f7;
-  margin-bottom: 40px;
+.delete-btn {
+  color: #cbd5e1;
+  cursor: pointer;
 }
+
+.delete-btn:hover { color: #ef4444; }
