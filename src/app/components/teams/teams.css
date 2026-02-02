@@ -1,142 +1,103 @@
-.teams-container {
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #fcfcfc;
+:host {
+  display: block;
   min-height: 100vh;
+  background-color: #fcfcfd;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  direction: rtl; /* יישור לימין */
+}
+
+.teams-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.header-section {
+  margin-bottom: 40px;
 }
 
 h1 {
-  font-weight: 700;
-  color: #292d34;
-  margin-bottom: 10px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2d3748;
 }
 
-.subtitle {
-  color: #7f7f7f;
-  margin-bottom: 30px;
-}
-
-/* אזור יצירת צוות - שורה נקייה */
+/* שורת יצירת צוות */
 .create-team-bar {
+  background: white;
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+  padding: 15px 20px;
   display: flex;
   gap: 15px;
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-  border: 1px solid #eee;
   margin-bottom: 40px;
-  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
-.create-team-bar input {
+.input-clean {
   flex: 1;
-  border: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
   outline: none;
-  font-size: 16px;
-  padding: 10px;
+  background: #f8fafc;
 }
 
-.create-btn {
-  background-color: #7b68ee !important; 
-  border-radius: 8px !important;
-  height: 40px;
+.btn-primary {
+  background: #7b68ee;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
+/* גריד הצוותים */
 .teams-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .team-card {
   background: white;
-  border-radius: 12px;
   border: 1px solid #eaebef;
-  padding: 0;
-  transition: all 0.2s ease;
-  overflow: hidden;
+  border-radius: 14px;
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.3s;
   display: flex;
   flex-direction: column;
-  position: relative;
+  justify-content: space-between;
+  min-height: 120px;
 }
 
 .team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.06);
   border-color: #7b68ee;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
 }
 
-.card-color-strip {
-  height: 6px;
-  background: linear-gradient(90deg, #7b68ee, #a855f7);
-  width: 100%;
-}
-
-.card-content {
-  padding: 24px;
-  flex: 1;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 15px;
-}
-
-.team-title {
-  font-size: 18px;
+.team-name {
+  font-size: 1.3rem;
   font-weight: 700;
-  color: #292d34;
-  margin: 0;
+  color: #1a202c;
 }
 
-.members-count {
-  font-size: 12px;
-  color: #7f7f7f;
-  background: #f4f5f7;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-.description {
-  color: #87909e;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.card-actions {
-  padding: 15px 24px;
-  background: #fbfbfb;
-  border-top: 1px solid #f0f0f0;
+.team-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  margin-top: 15px;
 }
 
-.action-btn {
-  font-size: 13px;
-  color: #555;
-  border-radius: 6px;
+.btn-delete {
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  cursor: pointer;
 }
 
-.action-btn:hover {
-  background-color: #ececec;
-  color: #7b68ee;
-}
-
-.add-member-btn {
-  color: #7b68ee;
-  font-weight: 600;
-}
-
-.delete-btn {
-  color: #e0e0e0;
-}
-.delete-btn:hover {
-  color: #ff5555;
-  background: #fff0f0;
+.btn-delete:hover {
+  color: #ef4444;
 }
